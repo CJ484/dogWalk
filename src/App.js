@@ -5,7 +5,6 @@ import {
   faPersonWalking,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
-import noPic from "./assets/noImage.png";
 import "./globalStyles.scss";
 import cageDog from "./assets/dogInCage.jpg";
 import dogHug from "./assets/huggingDog.jpg";
