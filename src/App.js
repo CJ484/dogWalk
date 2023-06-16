@@ -8,12 +8,16 @@ import {
 import "./globalStyles.scss";
 import cageDog from "./assets/dogInCage.jpg";
 import dogHug from "./assets/huggingDog.jpg";
+import whitePaw from "./assets/orangePawPrint.png";
 
 function App() {
   return (
     <div className="App">
       <header>
-        <h1>NeighborMyDog</h1>
+        <div className="HomeLink">
+          <h1>NeighborMyDog</h1>
+          <img src={whitePaw} alt="white paw" />
+        </div>
         <div className="links">
           <div className="button">
             <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
