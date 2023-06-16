@@ -1,0 +1,84 @@
+@import "./utils/_variables.scss";
+
+html {
+    background-color: $background;
+}
+
+.App {
+    font-family: $main-font;
+}
+button {
+    font-family: $main-font;
+}
+
+.fa-person-walking,
+.fa-magnifying-glass,
+.fa-chevron-down {
+    transform: scale(1.5);
+    margin: 0 15px;
+    cursor: pointer;
+    color: white;
+}
+
+header {
+    background-color: $main-color;
+    display: flex;
+    justify-content: space-between;
+    h1 {
+        font-family: $headers;
+        margin-left: 20px;
+        font-size: 2.1rem;
+        color: white;
+    }
+    .links {
+        display: flex;
+    }
+    .button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin: 0 20px;
+    }
+}
+
+.MainBanner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    background: 
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
+      url("./assets/happyFamily.jpg") no-repeat center center ;
+    background-size: cover;
+    .twoButtons {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex;
+    }
+    button {
+        cursor: pointer;
+        border-radius: 30px;
+        h2{
+            padding: 0 28px;
+        }
+    }
+    .fa-chevron-down {
+        transform: scale(3.0);
+        margin-top: 15px;
+        color: $accent-color;
+    }
+}
+
+.FirstSection {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4%;
+    img {
+        width: 400px;
+    }
+    p {
+        width: 500px;
+    }
+}
