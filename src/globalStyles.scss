@@ -4,6 +4,10 @@ html {
     background-color: $background;
 }
 
+body {
+    margin: 0;
+}
+
 .App {
     font-family: $main-font;
 }
@@ -24,6 +28,11 @@ header {
     background-color: $main-color;
     display: flex;
     justify-content: space-between;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
     h1 {
         font-family: $headers;
         margin-left: 20px;
@@ -109,5 +118,13 @@ header {
     }
     p {
         width: 500px;
+    }
+}
+
+// delete after!!!!!!!!!!!!
+
+.test{
+    img {
+        width: 300px;
     }
 }
