@@ -1,14 +1,17 @@
 // reducer.js
-import { SET_USER } from '../Actions/actionsConts.js'
+import Hello from '../Actions/actionsConts.js'
 const initialState = {
   firstName: "",
   lastName: "",
   email: "",
 };
 
-const profileReducer = (state = initialState, action, SET_USER) => {
+const test = Hello
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_USER":
+      console.log(test);
       return {
         ...state,
         firstName: action.payload,
