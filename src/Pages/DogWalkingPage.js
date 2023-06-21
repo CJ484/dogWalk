@@ -1,11 +1,12 @@
 import React from "react";
-import "./DogResults/DogResults.scss"
+import "./DogResults/DogResultsPage.scss";
 import { useSelector } from "react-redux";
 import Banner from "../Components/Banner/Banner";
 import FilterResults from "../Components/FilterResults/FilterResults.js";
 import DisplayFilters from "../Components/DisplayFilters/DisplayFilters";
 import DogResults from "../Components/DogResults/DogResults";
-import PaginationFunction from "../Components/Pagination/Pagination.js"
+import PaginationFunction from "../Components/Pagination/Pagination.js";
+
 const DogWalkingPage = () => {
   const dogs = useSelector((state) => state.dogs);
 
@@ -13,20 +14,14 @@ const DogWalkingPage = () => {
     <div className="test">
       <Banner />
 
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div className="midSection">
         <FilterResults />
-
-        <div style={{ marginLeft: "auto" }}>
+        <div className="twoComponents">
           <DisplayFilters />
+          <DogResults />
         </div>
       </div>
-
-      <div>
-        <DogResults dogs={dogs} />
-      </div>
-      <div>
-        <PaginationFunction />
-      </div>
+      <PaginationFunction />
     </div>
   );
 };
