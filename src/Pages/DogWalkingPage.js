@@ -24,10 +24,7 @@ const DogWalkingPage = () => {
       <div>
         <DogResults dogs={dogs} />
       </div>
-
-      <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}
-      >
+      <div>
         <PaginationFunction />
       </div>
     </div>
