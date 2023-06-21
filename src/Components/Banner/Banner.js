@@ -1,8 +1,8 @@
-import pic from "../../assets/dogInCage.jpg"
+import './Banner.styles.scss'
 function Banner() {
     return (
-        <div>
-            <img src={pic} alt="example"/>
+        <div className="banner">
+            <h1>Dog meets World</h1>
         </div>
     )
 }

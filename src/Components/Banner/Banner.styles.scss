@@ -1,0 +1,20 @@
+@import '../../utils/_variables.scss';
+
+.banner {
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(190, 190, 190, 0.3), rgba(190, 190, 190, 0.3)),
+                url("../../assets/banner.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    h1 {
+        color: white;
+        font-family: $headers;
+        font-size: 3.5rem;
+    }
+}
