@@ -3,12 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
 import { BrowserRouter } from 'react-router-dom';
-import profileReducer from './Redux/Reducer/Reducer.js';
-const store = configureStore({
-  reducer: {profileReducer}
-});
+import store from './Redux/store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

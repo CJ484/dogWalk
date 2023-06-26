@@ -1,10 +1,10 @@
 import React from "react";
-import ProfileForm from '../Components/NewProfile/NewProfile'
-
+import Profile from "../Components/NewProfile/Profile";
+import './CreateNewProfile/CreateNewProfilePage.styles.scss'
 function NewProfile() {
     return(
-        <div>
-            <ProfileForm />
+        <div className="Page">
+            <Profile />
         </div>
     )
 }

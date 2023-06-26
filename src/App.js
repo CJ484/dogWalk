@@ -9,7 +9,7 @@ import "./globalStyles.scss";
 import whitePaw from "./assets/orangePawPrint.png";
 import Home from "./Pages/Home";
 import DogWalkingPage from "./Pages/DogWalkingPage";
-import ProfileForm from "./Components/NewProfile/NewProfile";
+import NewProfile from "./Pages/CreateNewProfilePage";
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
       <Routes>
         <Route exact="true" path="/" element={<Home />} />
         <Route exact="true" path="/Pages/DogWalkingPage.js" element={<DogWalkingPage />} />
-        <Route exact="true" path="/Pages/CreateNewProfilePage.js" element={<ProfileForm/>} />
+        <Route exact="true" path="/Pages/CreateNewProfilePage.js" element={<NewProfile/>} />
       </Routes>
     </div>
   );
