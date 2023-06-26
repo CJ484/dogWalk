@@ -5,6 +5,7 @@ import "../globalStyles.scss";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import cageDog from "../assets/dogInCage.jpg";
 import dogHug from "../assets/huggingDog.jpg";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -12,9 +13,11 @@ function Home() {
       <div className="MainBanner">
         <h1>Become a dogs social mentor, Help him get the first paw out</h1>
         <div className="twoButtons">
+          <Link exact="true" to="/Pages/DogWalkingPage.js">
           <button>
             <h2>Explore Neighborhood Dogs</h2>
           </button>
+          </Link>
           <FontAwesomeIcon icon={faChevronDown} href="#FirstSection"/>
         </div>
       </div>
