@@ -1,3 +1,5 @@
+@import "../../utils/_variables.scss";
+
 .card {
     width: 300px;
     margin: 10px;
@@ -11,4 +13,26 @@
     display: flex;
     max-width: 75%;
     flex-wrap: wrap;
+}
+
+.btn {
+    background-color: $main-color;
+    border: none;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.label {
+    color: rgb(133, 103, 41);
+}
+
+@media screen and (max-width: 1200px) {
+    .card {
+        width: 200px;
+    }
+    .card-img-top {
+        height: 180px;
+    }
+    .cardGrid {
+        max-width: 89%;
+    }
 }

@@ -40,7 +40,6 @@ function DogCardInfo() {
     const girl = dogName;
     const pr = list.map((user) => {
       const Namey = girl[Math.floor(Math.random() * girl.length)];
-      console.log(Namey);
       return { ...user, nameDog: Namey };
     });
     return CardTemplate(pr);
@@ -61,8 +60,12 @@ function DogCardInfo() {
                     alt="Dog"
                   />
                   <div className="card-body">
+                    <h6 className="label">Name:</h6>
                     <h5 className="card-title">{value.nameDog}</h5>
+                    <h6 className="label">Handling</h6>
                     <h5 className="card-title">{value.trainability}</h5>
+                    <h6 className="label">Breed:</h6>
+                    <h5 className="card-title">{value.name}</h5>
                     <a href="/" className="btn btn-primary">
                       Add to DogPen
                     </a>
