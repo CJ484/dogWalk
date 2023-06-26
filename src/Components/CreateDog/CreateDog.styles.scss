@@ -1,0 +1,14 @@
+.card {
+    width: 300px;
+    margin: 10px;
+}
+.card-img-top {
+    width: 100% !important;
+    height: 250px;
+}
+
+.cardGrid {
+    display: flex;
+    max-width: 75%;
+    flex-wrap: wrap;
+}
