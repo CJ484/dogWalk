@@ -41,6 +41,9 @@ header {
     }
     .links {
         display: flex;
+        h3 {
+            margin: 0;
+        }
     }
     .button {
         display: flex;
@@ -52,6 +55,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 20px;
         img {
             margin-left: 10px;
             width: 50px;
