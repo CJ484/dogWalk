@@ -1,9 +1,9 @@
 @import '../../utils/_variables.scss';
 
 .banner {
-    height: 100px;
+    height: 150px;
     background: linear-gradient(to bottom, rgba(190, 190, 190, 0.3), rgba(190, 190, 190, 0.3)),
-                url("../../assets/banner.jpg") no-repeat center center;
+                url("../../assets/banner.png") no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
