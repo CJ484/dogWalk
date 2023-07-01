@@ -9,7 +9,7 @@ import PaginationFunction from "../Components/Pagination/Pagination.js";
 const DogWalkingPage = () => {
 
   return (
-    <div className="test">
+    <div className="dogWalkingPage">
       <Banner />
 
       <div className="midSection">

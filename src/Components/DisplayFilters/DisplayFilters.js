@@ -1,7 +1,9 @@
 import pic from "../../assets/dogInCage.jpg";
+import './DisplayFilters.styles.scss'
+
 function DisplayFilters() {
   return (
-    <div>
+    <div className="displayFilters">
       <img src={pic} alt="example" />
     </div>
   );
