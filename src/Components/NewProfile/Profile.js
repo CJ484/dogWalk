@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser } from "../../Redux/store/userSlice.js";
+import { updateUser } from "../../Redux/User/userSlice.js";
 import "./Profile.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,12 +8,13 @@ import {
   faPhone,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
-
+  const user = useSelector((state) => state.reducer.user);
+  const { t } = useTranslation();
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
@@ -32,8 +33,7 @@ const Profile = () => {
           <input
           className="inputs"
             type="text"
-            placeholder="UserName"
-            value={username}
+            placeholder={t('profile.user')}
             onChange={(e) => setUsername(e.target.value)}
           />
     
@@ -43,8 +43,7 @@ const Profile = () => {
           <input
           className="inputs"
             type="email"
-            placeholder="Email"
-            value={email}
+            placeholder={t('profile.email')}
             onChange={(e) => setEmail(e.target.value)}
           />
   
@@ -53,13 +52,12 @@ const Profile = () => {
           <input
           className="inputs"
             type="tel"
-            placeholder="Phone Number"
-            value={phoneNumber}
+            placeholder={t('profile.phone')}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
         
         <br />
-        <input className="submitButton" type="submit" value="Update Profile" />
+        <input className="submitButton" type="submit" value={t('profile.button')} />
       </form>
     </div>
   );

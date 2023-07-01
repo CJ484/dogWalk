@@ -1,17 +1,29 @@
 import { useEffect, useState } from "react";
+import { connect, useDispatch } from "react-redux";
 import "./CreateDog.styles.scss";
 import axios from "axios";
+import { setLoading } from "../../Redux/Loading/LoadingSlice";
+import Loading from "../Loading/Loading";
+import { useTranslation } from "react-i18next";
 
-function DogCardInfo() {
+const DogCardInfo = ({ isLoading, setLoading }) => {
+  const { t } = useTranslation();
   const [dogName, setDogName] = useState([]);
   const [dogInfo, setDogInfo] = useState([]);
+  const dispatch = useDispatch();
+  const setTrue = () => {
+    dispatch(setLoading(true));
+  };
 
   useEffect(() => {
+    setTrue();
     RandomDogInfo();
     RandomName();
     modifiedObject();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setDogName, setDogInfo]);
+
+  console.log(isLoading);
 
   //This function is responsible for getting image, breed Name, size into the cards
   //However it also saves the rest of the unused data.
@@ -36,13 +48,13 @@ function DogCardInfo() {
   };
 
   const modifiedObject = () => {
-    const list = dogInfo;
-    const girl = dogName;
-    const pr = list.map((user) => {
-      const Namey = girl[Math.floor(Math.random() * girl.length)];
-      return { ...user, nameDog: Namey };
+    const dgInfo = dogInfo;
+    const dgName = dogName;
+    const combinedList = dgInfo.map((dg) => {
+      const Namey = dgName[Math.floor(Math.random() * dgName.length)];
+      return { ...dg, nameDog: Namey };
     });
-    return CardTemplate(pr);
+    return CardTemplate(combinedList);
   };
 
   //This will serve as the card template when I receive all important information needed
@@ -60,14 +72,14 @@ function DogCardInfo() {
                     alt="Dog"
                   />
                   <div className="card-body">
-                    <h6 className="label">Name:</h6>
+                    <h6 className="label">{t('card.name')}:</h6>
                     <h5 className="card-title">{value.nameDog}</h5>
-                    <h6 className="label">Handling</h6>
+                    <h6 className="label">{t('card.handling')}:</h6>
                     <h5 className="card-title">{value.trainability}</h5>
-                    <h6 className="label">Breed:</h6>
+                    <h6 className="label">{t('card.breed')}:</h6>
                     <h5 className="card-title">{value.name}</h5>
                     <a href="/" className="btn btn-primary">
-                      Add to DogPen
+                      {t('card.button')}
                     </a>
                   </div>
                 </div>
@@ -78,8 +90,17 @@ function DogCardInfo() {
       </div>
     );
   };
+  if (isLoading === true) {
+    return <Loading />;
+  } else {
+    return modifiedObject();
+  }
+};
 
-  return modifiedObject();
-}
+const mapStateToProps = (state) => {
+  return {
+    isLoading: state.reducer.loadingState.value,
+  };
+};
 
-export default DogCardInfo;
+export default connect(mapStateToProps, { setLoading })(DogCardInfo);

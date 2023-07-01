@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "title": "NachbarMyDog",
+    "explore": "Entdecken Sie Hunde",
+    "walker": "Werde ein Wanderer"
+  },
+
+  "home": {
+    "banner": "Werden Sie ein sozialer Mentor für Ihren Hund und helfen Sie ihm, die erste Pfote herauszuholen",
+    "bannerButton": "Explora los perros del vecindario",
+    "paragraph-1": "Jedes Jahr werden etwa 4,1 Millionen Tierheimtiere adoptiert (2\n Millionen Hunde). Jedes Jahr werden etwa 2 Millionen Hunde adoptiert, aber was?\n Etwa die andere Hälfte braucht ein Zuhause. Die meisten Hunde haben Angst, zurückzugehen\n raus, weil ihnen die Anleitung fehlte. Mit unserer Hilfe können wir helfen\n Sie erhalten ihre energiegeladene Persönlichkeit und machen sie vorzeigbar\n zukünftige Familien.",
+    "paragraph-2": "Es gibt so viele Gründe für eine Adoption: ein einzigartiges Haustier kennenzulernen, Geld auszugeben\n weniger, eine gute Tat zu tun – aber lasst uns über Fakten sprechen. Millionen von Haustieren kommen herein\n Schutzhütten jedes Jahr. Und Hunderttausende werden jeweils eingeschläfert\n Jahr. Wir sagen Ihnen das nicht, um Ihnen ein schlechtes Gewissen zu machen oder Sie zu enttäuschen, aber das ist es\n warum uns Adoption wirklich wichtig ist. Wir würden uns freuen, wenn Sie\n über eine Adoption nachgedacht. Und da Sie hier sind, vermuten wir, dass Sie es sind.\n Im Ernst, kein Urteil, wenn Sie ein Haustier auf andere Weise finden (jeder Haustierelternteil).\n Die Reise ist anders!). Aber wir sind hier, um die Einführung zu erleichtern.\n wie auch immer wir können."
+  },
+
+  "filters": {
+    "title": "Filter",
+    "option-1": "Trainierbarkeit",
+    "option-2": "Schuppen",
+    "option-3": "Gut mit Kindern",
+    "option-4": "Gebell"
+  },
+
+  "banner": {
+    "title": "Hund trifft Welt"
+  },
+
+  "card": {
+    "name": "Nenenn",
+    "handling": "Handhabung",
+    "breed": "Züchten",
+    "button": "Zum DogPen hinzufügen"
+  },
+
+  "profile": {
+    "title": "Neues Profil erstellen",
+    "user": "Nutzername",
+    "email": "Email",
+    "phone": "Telefonnummer",
+    "button": "Profil aktualisieren"
+  }
+}
