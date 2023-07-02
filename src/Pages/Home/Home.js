@@ -1,10 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../globalStyles.scss";
+import "../../globalStyles.scss";
 import { useTranslation } from 'react-i18next';
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import cageDog from "../assets/dogInCage.jpg";
-import dogHug from "../assets/huggingDog.jpg";
+import cageDog from "../../assets/dogInCage.jpg";
+import dogHug from "../../assets/huggingDog.jpg";
 import { Link } from "react-router-dom";
 
 function Home() {

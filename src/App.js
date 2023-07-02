@@ -8,9 +8,9 @@ import {
 import "./globalStyles.scss";
 import dogPen from "./assets/dogPen.png";
 import whitePaw from "./assets/orangePawPrint.png";
-import Home from "./Pages/Home";
-import DogWalkingPage from "./Pages/DogWalkingPage";
-import NewProfile from "./Pages/CreateNewProfilePage";
+import Home from "./Pages/Home/Home";
+import DogWalkingPage from "./Pages/DogResults/DogResultPage";
+import NewProfile from "./Pages/CreateNewProfile/CreateNewProfilePage";
 import Languagelist from "./Components/LanguageList/LanguageList";
 import { useTranslation } from "react-i18next";
 import DogPen from "./Pages/DogPen/DogPen";
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Link exact="true" to="/" className="HomeLink">
+        <Link exact="true" to="/Pages/Home/Home.js" className="HomeLink">
           <h1>{t("nav.title")}</h1>
           <img src={whitePaw} alt="white paw" />
         </Link>
@@ -30,7 +30,7 @@ function App() {
             <h3>{t("nav.explore")}</h3>
           </div>
         </Link>
-        <Link exact="true" to="/Pages/CreateNewProfilePage.js" className="links">
+        <Link exact="true" to="/Pages/CreateNewProfile/CreateNewProfilePage.js" className="links">
           <div className="button">
             <FontAwesomeIcon icon={faPersonWalking} size="lg" />
             <h3>{t("nav.walker")}</h3>
@@ -54,7 +54,7 @@ function App() {
         />
         <Route
           exact="true"
-          path="/Pages/CreateNewProfilePage.js"
+          path="/Pages/CreateNewProfile/CreateNewProfilePage.js"
           element={<NewProfile />}
         />
         <Route

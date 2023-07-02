@@ -19,7 +19,7 @@ const Loading = ({setLoading}) => {
   console.log("loading...");
   return (
     <div className="loaderPage">
-      <SyncLoader size={100} color="#36d7b7" />;
+      <SyncLoader size={100} color="#36d7b7" />
     </div>
   )
 };

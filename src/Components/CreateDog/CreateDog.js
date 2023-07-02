@@ -91,7 +91,7 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
     );
   };
   if (isLoading === true) {
-    return <Loading />;
+    return <Loading />
   } else {
     return modifiedObject();
   }
