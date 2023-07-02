@@ -23,6 +23,12 @@ button {
     cursor: pointer;
     color: white;
 }
+.icon {
+    filter: invert(1);
+    height: 30px;
+    width: 30px;
+    margin: 0 15px;
+}
 
 header {
     background-color: $main-color;
