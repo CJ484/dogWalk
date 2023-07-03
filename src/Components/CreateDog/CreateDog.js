@@ -5,6 +5,7 @@ import axios from "axios";
 import { setLoading } from "../../Redux/Loading/LoadingSlice";
 import Loading from "../Loading/Loading";
 import { useTranslation } from "react-i18next";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const DogCardInfo = ({ isLoading, setLoading }) => {
   const { t } = useTranslation();
@@ -14,6 +15,9 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
   const setTrue = () => {
     dispatch(setLoading(true));
   };
+  const [hasMore, setHasMore] = useState(true);
+  const [offsetAmount, setOffsetAmount] = useState(0);
+  const limitperPage = 20;
 
   useEffect(() => {
     setTrue();
@@ -23,25 +27,31 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setDogName, setDogInfo]);
 
-  console.log(isLoading);
-
   //This function is responsible for getting image, breed Name, size into the cards
   //However it also saves the rest of the unused data.
   const RandomDogInfo = async () => {
     const key = "9/8P1dgeiaMQRHYSg9SgkA==olxKKsYDWHZlEAYU";
     await axios
-      .get(`https://api.api-ninjas.com/v1/dogs?trainability=5`, {
+      .get(`https://api.api-ninjas.com/v1/dogs?offset=${offsetAmount}&min_height=6`, {
         headers: { "X-Api-Key": key },
       })
       .then((results) => {
-        setDogInfo(results.data);
-      });
+        const newData = results.data;
+        setDogInfo((prevDogs) => [...prevDogs, ...newData]);
+        setOffsetAmount((offset) => offset + limitperPage);
+     })
+      .catch((error) => {
+        if(error.response?.status === 404) {
+          console.error(`could not find url`, error.data);
+          return undefined;
+        }
+      })
   };
 
   //Requests a random name, its currently on a loop for 12 times
   const RandomName = async () => {
     await axios
-      .get("https://randomuser.me/api/?results=20&nat=us&inc=name")
+      .get("https://randomuser.me/api/?results=22&nat=us&inc=name")
       .then((results) => {
         setDogName(results.data.results.map((a) => a.name.first));
       });
@@ -61,6 +71,13 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
   const CardTemplate = (input3) => {
     return (
       <div className="cardGrid">
+        <InfiniteScroll
+          next={RandomDogInfo}
+          loader={<Loading />}
+          hasMore={hasMore}
+          dataLength={dogInfo.length}
+          endMessage={<p style={{ textAlign: 'center'}}>End of Data</p>}
+      >
         {input3.map((value, index) => {
           return (
             <div key={index} className="Card">
@@ -87,6 +104,8 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
             </div>
           );
         })}
+      </InfiniteScroll>
+
       </div>
     );
   };
@@ -96,6 +115,7 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
     return modifiedObject();
   }
 };
+
 
 const mapStateToProps = (state) => {
   return {
