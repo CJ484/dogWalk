@@ -15,7 +15,7 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
   const setTrue = () => {
     dispatch(setLoading(true));
   };
-  const [hasMore, setHasMore] = useState(true);
+  const hasMore = useState(true);
   const [offsetAmount, setOffsetAmount] = useState(0);
   const limitperPage = 20;
 
