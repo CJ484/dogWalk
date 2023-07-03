@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import "./FilterResults.styles.scss";
 import { Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../Redux/Filters/FilterRedux";
 
-const FilterComponent = ({ onFilterChange }) => {
+const FilterComponent = () => {
   const { t } = useTranslation();
-  const [filters, setFilters] = useState({ A: false, B: false, C: false });
+  const filters = useState({});
+  const dispatch = useDispatch();
 
-  const handleChange = (event) => {
-    setFilters({ ...filters, [event.target.name]: event.target.checked });
-    if (onFilterChange) {
-      onFilterChange({ ...filters, [event.target.name]: event.target.checked });
-    }
-  };
+  const handleFilterChange = (event) => {
+    const {name, value} = event.target;
+    dispatch(setFilter({key: name, value}));
+  }
 
   return (
     <div className="filterSection">
@@ -21,30 +22,38 @@ const FilterComponent = ({ onFilterChange }) => {
         <Form.Check
           type="checkbox"
           id="A"
+          name="trainability"
+          value={5}
           label={t('filters.option-1')}
           checked={filters.A}
-          onChange={handleChange}
+          onChange={handleFilterChange}
         />
         <Form.Check
           type="checkbox"
           id="B"
+          name="shedding"
+          value={5}
           label={t('filters.option-2')}
           checked={filters.B}
-          onChange={handleChange}
+          onChange={handleFilterChange}
         />
         <Form.Check
           type="checkbox"
           id="C"
+          name="goodWithChildren"
+          value={5}
           label={t('filters.option-3')}
           checked={filters.C}
-          onChange={handleChange}
+          onChange={handleFilterChange}
         />
         <Form.Check
           type="checkbox"
           id="D"
+          name="barking"
+          value={5}
           label={t('filters.option-4')}
           checked={filters.D}
-          onChange={handleChange}
+          onChange={handleFilterChange}
         />
       </Form>
     </div>
