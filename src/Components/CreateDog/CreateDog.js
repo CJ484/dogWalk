@@ -9,8 +9,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 
 const DogCardInfo = ({ isLoading, setLoading }) => {
   const { t } = useTranslation();
-  const [dogName, setDogName] = useState([]);
-  const [dogInfo, setDogInfo] = useState([]);
+  const [dogNames, setDogNames] = useState([]);
+  const [dogInfos, setDogInfos] = useState([]);
   const dispatch = useDispatch();
   const setTrue = () => {
     dispatch(setLoading(true));
@@ -23,9 +23,9 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
     setTrue();
     RandomDogInfo();
     RandomName();
-    modifiedObject();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setDogName, setDogInfo]);
+    ModifiedObject();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setDogInfos, setDogNames]);
 
   //This function is responsible for getting image, breed Name, size into the cards
   //However it also saves the rest of the unused data.
@@ -37,7 +37,7 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
       })
       .then((results) => {
         const newData = results.data;
-        setDogInfo((prevDogs) => [...prevDogs, ...newData]);
+        setDogInfos((prevDogs) => [...prevDogs, ...newData]);
         setOffsetAmount((offset) => offset + limitperPage);
      })
       .catch((error) => {
@@ -53,13 +53,13 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
     await axios
       .get("https://randomuser.me/api/?results=22&nat=us&inc=name")
       .then((results) => {
-        setDogName(results.data.results.map((a) => a.name.first));
+        setDogNames(results.data.results.map((a) => a.name.first));
       });
   };
 
-  const modifiedObject = () => {
-    const dgInfo = dogInfo;
-    const dgName = dogName;
+  const ModifiedObject = () => {
+    const dgInfo = dogInfos;
+    const dgName = dogNames;
     const combinedList = dgInfo.map((dg) => {
       const Namey = dgName[Math.floor(Math.random() * dgName.length)];
       return { ...dg, nameDog: Namey };
@@ -68,17 +68,17 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
   };
 
   //This will serve as the card template when I receive all important information needed
-  const CardTemplate = (input3) => {
+  const CardTemplate = (input) => {
     return (
       <div className="cardGrid">
         <InfiniteScroll
           next={RandomDogInfo}
           loader={<Loading />}
           hasMore={hasMore}
-          dataLength={dogInfo.length}
+          dataLength={dogInfos.length}
           endMessage={<p style={{ textAlign: 'center'}}>End of Data</p>}
       >
-        {input3.map((value, index) => {
+        {input.map((value, index) => {
           return (
             <div key={index} className="Card">
               <div className="col-md-4">
@@ -112,7 +112,7 @@ const DogCardInfo = ({ isLoading, setLoading }) => {
   if (isLoading === true) {
     return <Loading />
   } else {
-    return modifiedObject();
+    return ModifiedObject();
   }
 };
 

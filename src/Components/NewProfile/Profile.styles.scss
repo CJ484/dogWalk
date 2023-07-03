@@ -41,9 +41,9 @@
         border: none;
         margin-top: 20px;
         color: white;
-    }
-    input[type="submit"].submitButton:hover {
-        filter: brightness(110%);
-        transition: all ease-in-out 160ms;
+        &:hover {
+            filter: brightness(110%);
+            transition: all ease-in-out 160ms;
+        }
     }
 }
