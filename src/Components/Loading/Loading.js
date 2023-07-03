@@ -11,12 +11,10 @@ const Loading = ({setLoading}) => {
 
   useEffect(() => {
     setTimeout(() => {
-        console.log("starting false...");
       setFalse();
     }, 8000);
   });
 
-  console.log("loading...");
   return (
     <div className="loaderPage">
       <SyncLoader size={100} color="#36d7b7" />
