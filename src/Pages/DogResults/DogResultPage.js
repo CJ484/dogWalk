@@ -6,7 +6,7 @@ import DisplayFilters from "../../Components/DisplayFilters/DisplayFilters";
 import DogCardInfo from "../../Components/CreateDog/CreateDog";
 import PaginationFunction from "../../Components/Pagination/Pagination.js";
 
-const DogWalkingPage = () => {
+const DogResultsPage = () => {
 
   return (
     <div className="dogWalkingPage">
@@ -24,4 +24,4 @@ const DogWalkingPage = () => {
   );
 };
 
-export default DogWalkingPage;
+export default DogResultsPage;
