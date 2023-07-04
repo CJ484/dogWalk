@@ -5,13 +5,13 @@ import SyncLoader from "react-spinners/SyncLoader";
 
 const Loading = ({setLoading}) => {
   const dispatch = useDispatch();
-  const setFalse = () => {
+  const setLoadingFalse = () => {
     dispatch(setLoading(false));
   };
 
   useEffect(() => {
     setTimeout(() => {
-      setFalse();
+      setLoadingFalse();
     }, 3000);
   });
 
