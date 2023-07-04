@@ -24,7 +24,7 @@ const Loading = ({setLoading}) => {
 
 const mapStateToProps = (state) => {
   return {
-    isLoading: state.reducer.loadingState.value,
+    isLoading: state.reducer.loading.value,
   };
 };
 

@@ -10,17 +10,17 @@ const initialState = {
 };
 
 // Create slice
-const filterSlice = createSlice({
+const filters = createSlice({
   name: "filter",
   initialState,
   reducers: {
     setFilter: (state, action) => {
       const { key, value } = action.payload;
-      state.filter[key] = value;
+      state.filters[key] = value;
     }
   }
 });
 
 // Extract actions and reducer from the slice
-export const { setFilter } = filterSlice.actions;
-export default filterSlice.reducer;
+export const { setFilter } = filters.actions;
+export default filters.reducer;
