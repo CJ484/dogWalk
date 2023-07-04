@@ -7,7 +7,7 @@ import filterReducer from './Filters/FilterRedux.js';
 const rootReducer = combineReducers({
   loadingState: loadingStateReducer,
   user: userReducer,
-  filter: filterReducer,
+  filterDogs: filterReducer,
   // Add other reducers here if you have any
 });
 

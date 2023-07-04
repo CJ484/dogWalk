@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state
 const initialState = {
-  filter: {
+  filters: {
     barking: "",
     trainability: "",
     goodWithChildren: "",
