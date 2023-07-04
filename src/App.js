@@ -10,7 +10,7 @@ import dogPen from "./assets/dogPen.png";
 import whitePaw from "./assets/orangePawPrint.png";
 import Home from "./Pages/Home/Home.js";
 import DogWalkingPage from "./Pages/DogResults/DogResultPage";
-import NewProfile from "./Pages/CreateNewProfile/CreateNewProfilePage";
+import CreateNewProfile from "./Pages/CreateNewProfile/CreateNewProfilePage";
 import Languagelist from "./Components/LanguageList/LanguageList";
 import { useTranslation } from "react-i18next";
 import DogPen from "./Pages/DogPen/DogPen";
@@ -59,7 +59,7 @@ function App() {
         <Route
           exact="true"
           path="/Pages/CreateNewProfile/CreateNewProfilePage"
-          element={<NewProfile />}
+          element={<CreateNewProfile />}
         />
         <Route
           exact="true"

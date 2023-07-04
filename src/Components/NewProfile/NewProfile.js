@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../../Redux/User/userSlice.js";
-import "./Profile.styles.scss";
+import "./NewProfile.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEnvelope,
@@ -11,7 +11,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 
-const Profile = () => {
+const NewProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.reducer.user);
   const { t } = useTranslation();
@@ -63,4 +63,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default NewProfile;

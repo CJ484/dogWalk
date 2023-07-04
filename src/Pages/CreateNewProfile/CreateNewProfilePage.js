@@ -1,12 +1,12 @@
 import React from "react";
-import Profile from "../../Components/NewProfile/Profile";
+import NewProfile from "../../Components/NewProfile/NewProfile";
 import './CreateNewProfilePage.styles.scss'
-function NewProfile() {
+function CreateNewProfile() {
     return(
         <div className="Page">
-            <Profile />
+            <NewProfile />
         </div>
     )
 }
 
-export default NewProfile;
+export default CreateNewProfile;
