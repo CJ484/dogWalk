@@ -1,4 +1,5 @@
 import React from "react";
+import './Home.styles.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../../globalStyles.scss";
 import { useTranslation } from 'react-i18next';
