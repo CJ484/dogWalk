@@ -17,9 +17,9 @@ const Loading = ({setLoading}) => {
 
   return (
     <div className="loaderPage">
-      <SyncLoader size={100} color="#36d7b7" />
+      <SyncLoader size={100} color="#FF9D28" />
     </div>
-  )
+  );
 };
 
 const mapStateToProps = (state) => {
