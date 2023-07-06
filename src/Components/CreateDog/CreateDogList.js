@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import "./CreateDogList.styles.scss";
@@ -13,18 +14,16 @@ const CreateDogList = ({ isLoading, setLoading }) => {
   const [dogInfos, setDogInfos] = useState([]);
   const [combinedDogData, setCombinedDogData] = useState([]);
   const dispatch = useDispatch();
-  const setLoadingTrue = () => {
-    dispatch(setLoading(true));
-  };
+  const setLoadingTrue = () => { dispatch(setLoading(true)); };
   const hasMore = useState(true);
   const [offsetAmount, setOffsetAmount] = useState(0);
   const limitperPage = 20;
-  const url = `${urls.dogNinjaApi}+&offset=${offsetAmount}`;
+  const dogUrl = `${urls.dogNinjaApi}+&offset=${offsetAmount}`;
+  const nameUrl = urls.nameApi;
 
   useEffect(() => {
     setLoadingTrue();
     RandomDogInfo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setDogInfos]);
 
   useEffect(() => {
@@ -33,7 +32,6 @@ const CreateDogList = ({ isLoading, setLoading }) => {
 
   useEffect(() => {
     ModifiedObject(dogNames, dogInfos);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setCombinedDogData, dogInfos]);
 
   //This function is responsible for getting image, breed Name, size into the cards
@@ -41,7 +39,7 @@ const CreateDogList = ({ isLoading, setLoading }) => {
   const RandomDogInfo = async () => {
     const key = process.env.REACT_APP_DOG;
     await axios
-      .get(url, {
+      .get(dogUrl, {
         headers: { "X-Api-Key": key },
       })
       .then((results) => {
@@ -59,7 +57,7 @@ const CreateDogList = ({ isLoading, setLoading }) => {
   //Requests a random name, its currently on a loop for 12 times
   const RandomName = async () => {
     await axios
-      .get("https://randomuser.me/api/?results=22&nat=us&inc=name")
+      .get(nameUrl)
       .then((results) => {
         setDogNames(results.data.results.map((a) => a.name.first));
       });
