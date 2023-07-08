@@ -15,6 +15,7 @@ import Languagelist from "./Components/LanguageList/LanguageList";
 import { useTranslation } from "react-i18next";
 import DogPen from "./Pages/DogPen/DogPen";
 import CurrentProfile from "./Components/CurrentProfile/CurrentProfile";
+import CurrentProfilePage from "./Pages/CurrentProfile/CurrentProfilePage";
 
 function App() {
   const { t } = useTranslation();
@@ -43,9 +44,7 @@ function App() {
             <h3>Dogpen</h3>
           </div>
         </Link>
-        <div className="userAsNow">
-          <CurrentProfile />
-        </div>
+        <CurrentProfile className="links" />
         <Languagelist />
       </header>
 
@@ -65,7 +64,8 @@ function App() {
           exact="true"
           path="/Pages/DogPen"
           element={<DogPen />}
-        ></Route>
+        />
+        <Route exact="true" path="/Pages/CurrentProfile/CurrentProfilePage" element={<CurrentProfilePage />}/>
       </Routes>
     </div>
   );
