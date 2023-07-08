@@ -5,6 +5,7 @@ import "./NewProfile.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
+import toast, { Toaster } from 'react-hot-toast';
 
 const NewProfile = () => {
   const dispatch = useDispatch();
@@ -18,8 +19,12 @@ const NewProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateUser({ username, email, phoneNumber }));
-    alert("Profile updated successfully!");
+    notify();
   };
+
+  const notify = () => toast.success('Profile updated Successfully!', {
+    id: 'profile'
+  });
 
   return (
     <div className="profile">
@@ -61,6 +66,7 @@ const NewProfile = () => {
           value={t("profile.button")}
         />
       </form>
+      <Toaster />
     </div>
   );
 };
