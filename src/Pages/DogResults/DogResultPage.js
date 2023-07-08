@@ -3,7 +3,7 @@ import "./DogResultsPage.scss";
 import Banner from "../../Components/Banner/Banner";
 import FilterResults from "../../Components/FilterResults/FilterResults.js";
 import DisplayFilters from "../../Components/DisplayFilters/DisplayFilters";
-import CreateDogList from "../../Components/CreateDog/CreateDogList";
+import CreateDogList from "../../Components/CreateDogList/CreateDogList";
 
 const DogResultsPage = () => {
 
