@@ -10,7 +10,7 @@ export default function Languagelist() {
 
   return (
     <Dropdown>
-      <Dropdown.Toggle>
+      <Dropdown.Toggle variant="warning">
         <FontAwesomeIcon icon={faEarthAmericas} />
       </Dropdown.Toggle>
       <Dropdown.Menu>
