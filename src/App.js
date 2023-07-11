@@ -13,12 +13,36 @@ import DogWalkingPage from "./Pages/DogResults/DogResultPage";
 import CreateNewProfile from "./Pages/CreateNewProfile/CreateNewProfilePage";
 import Languagelist from "./Components/LanguageList/LanguageList";
 import { useTranslation } from "react-i18next";
-import DogPen from "./Pages/DogPen/DogPen";
+import DogPenPage from "./Pages/DogPen/DogPenPage";
 import CurrentProfile from "./Components/CurrentProfile/CurrentProfile";
 import CurrentProfilePage from "./Pages/CurrentProfile/CurrentProfilePage";
+import { useSelector } from "react-redux";
 
 function App() {
   const { t } = useTranslation();
+  const dogPenNumber = useSelector(
+    (state) => state.reducer.dogResults.dogPen.length
+  );
+
+  const DogPen = () => {
+    if (dogPenNumber === 0) {
+      return (
+        <div className="button">
+          <img className="icon" src={dogPen} alt="dogpen" />
+          <h3>Dogpen</h3>
+        </div>
+      );
+    } else {
+      return (
+        <div className="button">
+          <img className="icon" src={dogPen} alt="dogpen" />
+          <h3>Dogpen</h3>
+          <h6>({dogPenNumber})</h6>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="App">
       <header>
@@ -26,23 +50,28 @@ function App() {
           <h1>{t("nav.title")}</h1>
           <img src={whitePaw} alt="white paw" />
         </Link>
-        <Link exact="true" to="/Pages/DogResults/DogResultPage" className="links">
+        <Link
+          exact="true"
+          to="/Pages/DogResults/DogResultPage"
+          className="links"
+        >
           <div className="button">
             <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
             <h3>{t("nav.explore")}</h3>
           </div>
         </Link>
-        <Link exact="true" to="/Pages/CreateNewProfile/CreateNewProfilePage" className="links">
+        <Link
+          exact="true"
+          to="/Pages/CreateNewProfile/CreateNewProfilePage"
+          className="links"
+        >
           <div className="button">
             <FontAwesomeIcon icon={faPersonWalking} size="lg" />
             <h3>{t("nav.walker")}</h3>
           </div>
         </Link>
-        <Link exact="true" to="/Pages/DogPen" className="links">
-          <div className="button">
-            <img className="icon" src={dogPen} alt="dogpen" />
-            <h3>Dogpen</h3>
-          </div>
+        <Link exact="true" to="/Pages/DogPenPage" className="links">
+          <DogPen />
         </Link>
         <CurrentProfile className="links" />
         <Languagelist />
@@ -60,12 +89,12 @@ function App() {
           path="/Pages/CreateNewProfile/CreateNewProfilePage"
           element={<CreateNewProfile />}
         />
+        <Route exact="true" path="/Pages/DogPenPage" element={<DogPenPage />} />
         <Route
           exact="true"
-          path="/Pages/DogPen"
-          element={<DogPen />}
+          path="/Pages/CurrentProfile/CurrentProfilePage"
+          element={<CurrentProfilePage />}
         />
-        <Route exact="true" path="/Pages/CurrentProfile/CurrentProfilePage" element={<CurrentProfilePage />}/>
       </Routes>
     </div>
   );
