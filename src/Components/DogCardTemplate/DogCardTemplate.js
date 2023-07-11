@@ -1,8 +1,10 @@
 import { useTranslation } from "react-i18next";
 import "./DogCardTemplate.styles.scss";
+import DogPenAddButton from "../DogPenAddButton/DogPenAddButton";
 
 const CardTemplate = ({ combinedDogData }) => {
   const { t } = useTranslation();
+
   return (
     <div className="cardGrid">
       {combinedDogData.map((value, index) => (
@@ -17,9 +19,7 @@ const CardTemplate = ({ combinedDogData }) => {
                 <h5 className="card-title">{value.trainability}</h5>
                 <h6 className="label">{t("card.breed")}:</h6>
                 <h5 className="card-title">{value.name}</h5>
-                <a href="/" className="btn btn-primary">
-                  {t("card.button")}
-                </a>
+                <DogPenAddButton index={index}/>
               </div> 
             </div>
           </div>
