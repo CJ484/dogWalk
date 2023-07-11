@@ -11,4 +11,17 @@
     h5 {
         margin: 0;
     }
+    .selectedFilters {
+        margin: 0 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        h6 {
+            margin: 0;
+        }
+        .fa-circle-xmark {
+            margin: 0 10px;
+        }
+    }
 }

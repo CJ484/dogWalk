@@ -22,24 +22,15 @@
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    ::-webkit-scrollbar {
-        display: none;
-    }
 }
 
 .infinite-scroll-component {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible !important;
 }
 
-.btn {
-    background-color: $main-color;
-    border: none;
-    width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-}
 .label {
     color: rgb(133, 103, 41);
 }
