@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import './DogPenPage.styles.scss';
 import { useSelector } from "react-redux";
 import CardTemplate from "../../Components/DogCardTemplate/DogCardTemplate";
+import { useTranslation } from "react-i18next";
 
 const DogPenPage = () => {
+    const { t } = useTranslation();
     const selectedDogs = useSelector((state) => state.reducer.dogResults.dogPen);
     const dogData = useSelector((state) => state.reducer.dogResults.results);
     const data = useState(dogData);
@@ -24,8 +26,8 @@ const DogPenPage = () => {
         return (
             <div className="DogPen">
                 <div className="emptyDogpen">
-                    <h1>The DogPen is Empty</h1>
-                    <h3>Start Looking To Help A Paw in Need</h3>
+                    <h1>{t("dogpen.emptyHeader-1")}</h1>
+                    <h3>{t("dogpen.emptyHeader-2")}</h3>
                 </div>
             </div>
         )
@@ -33,7 +35,7 @@ const DogPenPage = () => {
         return(
             <div className="DogPen">
                 <div className="activeDogpen">
-                    <h1>Your Selected Pooch's</h1>
+                    <h1>{t("dogpen.activeHeader-1")}</h1>
                     <CardTemplate combinedDogData={combinedDogData}/>
                 </div>
             </div>

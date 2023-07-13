@@ -1,17 +1,19 @@
 import { useSelector } from 'react-redux';
 import './CurrentProfilePage.styles.scss';
+import { useTranslation } from 'react-i18next';
 
 const CurrentProfilePage = () => {
+    const { t } = useTranslation();
     const profileInfo = useSelector((state) => state.reducer.user);
     return (
         <div className='Page'>
             <div className='currentProfile'>
-                <h2>Current Profile:</h2>
+                <h2>{t("currentProfile.title")}:</h2>
                 <div className='profileBox'>
                 <div className='profileText'>
-                    <h4><b>UserName:</b></h4>
-                    <h4><b>Email:</b></h4>
-                    <h4><b>Phone Number:</b></h4>
+                    <h4><b>{t("currentProfile.user")}:</b></h4>
+                    <h4><b>{t("currentProfile.email")}:</b></h4>
+                    <h4><b>{t("currentProfile.phone")}:</b></h4>
                 </div>
                 <div className='profileInfo'>
                     <h4>{profileInfo.username}</h4>

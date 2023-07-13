@@ -29,14 +29,14 @@ function App() {
       return (
         <div className="button">
           <img className="icon" src={dogPen} alt="dogpen" />
-          <h3>Dogpen</h3>
+          <h3>{t('dogpen.title')}</h3>
         </div>
       );
     } else {
       return (
         <div className="button">
           <img className="icon" src={dogPen} alt="dogpen" />
-          <h3>Dogpen</h3>
+          <h3>{t('dogpen.title')}</h3>
           <h6>({dogPenNumber})</h6>
         </div>
       );

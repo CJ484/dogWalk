@@ -16,13 +16,13 @@ const CurrentProfile = () => {
       <div className="CurrentProfile">
         <div className="speechBubble">
           <h5>
-            Welcome Back, <b>{user.username}!</b>
+            {t("currentProfile.welcomingHeader")} <b>{user.username}!</b>
           </h5>
         </div>
         <Link exact="true" to="../Pages/CurrentProfile/CurrentProfilePage" className="myProfile">
           <div>
             <img src={profile} alt="profile" />
-            <h5>My Profile</h5>
+            <h5>{t("currentProfile.myProfile")}</h5>
           </div>
         </Link>
       </div>

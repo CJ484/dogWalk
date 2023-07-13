@@ -36,6 +36,23 @@
     "user": "Nutzername",
     "email": "Email",
     "phone": "Telefonnummer",
-    "button": "Profil aktualisieren"
+    "button": "Profil aktualisieren",
+    "toastSuccess": "Profil erfolgreich aktualisiert"
+  },
+
+  "dogpen": {
+    "title": "Hundehütte",
+    "emptyHeader-1": "Die Hundehütte ist leer",
+    "emptyHeader-2": "Versuchen Sie, einer Pfote in Not zu helfen",
+    "activeHeader-1": "Ihr ausgewähltes Hündchen"
+  },
+
+  "currentProfile": {
+    "title": "Aktuelles Profil",
+    "welcomingHeader": "Willkommen zurück",
+    "myProfile": "Mein Profil",
+    "user": "Nutzername",
+    "email": "Email",
+    "phone": "Telefonnummer"
   }
 }

@@ -36,6 +36,23 @@
     "user": "Nombre de usuario",
     "email": "Correo electrónico",
     "phone": "Número de teléfono",
-    "button": "Actualización del perfil"
+    "button": "Actualización del perfil",
+    "toastSuccess": "Perfil actualizado!"
+  },
+
+  "dogpen": {
+    "title": "Perrera",
+    "emptyHeader-1": "La perrera está vacía",
+    "emptyHeader-2": "Comience a buscar ayudar a una pata necesitada",
+    "activeHeader-1": "Tu Perro Seleccionado"
+  },
+
+  "currentProfile": {
+    "title": "Perfil actual",
+    "welcomingHeader": "Bienvenido de nuevo",
+    "myProfile": "Mi Perfil",
+    "user": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "phone": "Número de teléfono"
   }
 }

@@ -36,6 +36,23 @@
     "user": "UserName",
     "email": "Email",
     "phone": "Phone Number",
-    "button": "Update Profile"
+    "button": "Update Profile",
+    "toastSuccess": "Profile Updated Successfully!"
+  },
+
+  "dogpen": {
+    "title": "DogPen",
+    "emptyHeader-1": "The DogPen is Empty",
+    "emptyHeader-2": "Start Looking To Help A Paw in Need",
+    "activeHeader-1": "Your Selected Pooch's"
+  },
+
+  "currentProfile": {
+    "title": "Current Profile",
+    "welcomingHeader": "Welcome Back",
+    "myProfile": "My Profile",
+    "user": "UserName",
+    "email": "Email",
+    "phone": "Phone Number"
   }
 }

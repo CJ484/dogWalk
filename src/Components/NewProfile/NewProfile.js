@@ -22,13 +22,13 @@ const NewProfile = () => {
     notify();
   };
 
-  const notify = () => toast.success('Profile updated Successfully!', {
+  const notify = () => toast.success(t("profile.toastSuccess"), {
     id: 'profile'
   });
 
   return (
     <div className="profile">
-      <h2> Create New Profile</h2>
+      <h2>{t("profile.title")}</h2>
       <form onSubmit={handleSubmit}>
         <FontAwesomeIcon icon={faUser} />
         <input
