@@ -8,15 +8,11 @@ import {
 import "./globalStyles.scss";
 import dogPen from "./assets/dogPen.png";
 import whitePaw from "./assets/orangePawPrint.png";
-import Home from "./Pages/Home/Home.js";
-import DogWalkingPage from "./Pages/DogResults/DogResultPage";
-import CreateNewProfile from "./Pages/CreateNewProfile/CreateNewProfilePage";
 import Languagelist from "./Components/LanguageList/LanguageList";
 import { useTranslation } from "react-i18next";
-import DogPenPage from "./Pages/DogPen/DogPenPage";
 import CurrentProfile from "./Components/CurrentProfile/CurrentProfile";
-import CurrentProfilePage from "./Pages/CurrentProfile/CurrentProfilePage";
 import { useSelector } from "react-redux";
+import routes from "./const/selectors/paths";
 
 function App() {
   const { t } = useTranslation();
@@ -46,13 +42,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <Link exact="true" to="/" className="HomeLink">
+        <Link exact="true" to={routes[0].path} className="HomeLink">
           <h1>{t("nav.title")}</h1>
           <img src={whitePaw} alt="white paw" />
         </Link>
         <Link
           exact="true"
-          to="/Pages/DogResults/DogResultPage"
+          to={routes[1].path}
           className="links"
         >
           <div className="button">
@@ -62,7 +58,7 @@ function App() {
         </Link>
         <Link
           exact="true"
-          to="/Pages/CreateNewProfile/CreateNewProfilePage"
+          to={routes[2].path}
           className="links"
         >
           <div className="button">
@@ -70,7 +66,7 @@ function App() {
             <h3>{t("nav.walker")}</h3>
           </div>
         </Link>
-        <Link exact="true" to="/Pages/DogPenPage" className="links">
+        <Link exact="true" to={routes[3].path} className="links">
           <DogPen />
         </Link>
         <CurrentProfile className="links" />
@@ -78,23 +74,15 @@ function App() {
       </header>
 
       <Routes>
-        <Route exact="true" path="/" element={<Home />} />
-        <Route
-          exact="true"
-          path="/Pages/DogResults/DogResultPage"
-          element={<DogWalkingPage />}
-        />
-        <Route
-          exact="true"
-          path="/Pages/CreateNewProfile/CreateNewProfilePage"
-          element={<CreateNewProfile />}
-        />
-        <Route exact="true" path="/Pages/DogPenPage" element={<DogPenPage />} />
-        <Route
-          exact="true"
-          path="/Pages/CurrentProfile/CurrentProfilePage"
-          element={<CurrentProfilePage />}
-        />
+        {routes.map((route, index) => (
+          <Route 
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          element={route.element}
+          />
+        ))}
+
       </Routes>
     </div>
   );
