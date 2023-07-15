@@ -21,13 +21,13 @@ const DisplayFilters = () => {
     setFilterNames(selectedFilters);
   }, [dispatch, filterNames, setFilterNames, selectedFilters])
 
-  if(filterNames.length === 0) {
+  if(selectedFilters.length === 0) {
     return <div></div>
   } else {
     return (
       <div className="displayFilters">
-        {filterNames.map((name) => (
-          <div className="selectedFilters">
+        {filterNames.map((name, index) => (
+          <div key={index} className="selectedFilters">
             <FontAwesomeIcon  className="fa-lg" icon={faCircleXmark} onClick={() => removeSelectedFilter(name)}/>
             <h6 key={name}>{name}</h6>
           </div>

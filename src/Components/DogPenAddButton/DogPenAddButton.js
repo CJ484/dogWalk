@@ -4,7 +4,7 @@ import "./DogPenAddButton.styles.scss";
 import { useDispatch } from "react-redux";
 import { addToDogPen, removeFromDogPen } from "../../Redux/DogResults/DogResultsRedux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquareMinus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const DogPenAddButton = ({index}) => {
     const { t } = useTranslation();

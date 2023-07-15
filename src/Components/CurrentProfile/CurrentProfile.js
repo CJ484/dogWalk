@@ -1,6 +1,5 @@
 import React from "react";
 import "./CurrentProfile.styles.scss";
-import { useSelector } from "react-redux";
 import profile from "../../assets/profile.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -11,6 +10,7 @@ const CurrentProfile = () => {
   const { t } = useTranslation();
   const user = getUserName();
 
+  //TODO I should impplement the react-textarea-autosize
   if (user === "") {
     return <div></div>;
   } else {
