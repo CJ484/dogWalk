@@ -29,7 +29,7 @@ const DisplayFilters = () => {
         {filterNames.map((name, index) => (
           <div key={index} className="selectedFilters">
             <FontAwesomeIcon  className="fa-lg" icon={faCircleXmark} onClick={() => removeSelectedFilter(name)}/>
-            <h6 key={name}>{name}</h6>
+            <h6>{name}</h6>
           </div>
         ))}
       </div>
