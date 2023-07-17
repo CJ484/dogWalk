@@ -3,10 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 // Initial state
 const initialState = {
   filters: {
-    barking: "",
-    trainability: "",
-    goodWithChildren: "",
-    shedding: "" },
+    barking: 0,
+    trainability: 0,
+    goodWithChildren: 0,
+    shedding: 0 
+  },
 };
 
 // Create slice
