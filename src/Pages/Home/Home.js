@@ -7,7 +7,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import cageDog from "../../assets/dogInCage.jpg";
 import dogHug from "../../assets/huggingDog.jpg";
 import { Link } from "react-router-dom";
-import routes from "../../const/selectors/paths";
+import routes from "../../const/paths";
 
 function Home() {
   const { t } = useTranslation();

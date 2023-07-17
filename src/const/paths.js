@@ -1,8 +1,8 @@
-import Home from "../../Pages/Home/Home";
-import CreateNewProfile from "../../Pages/CreateNewProfile/CreateNewProfilePage";
-import CurrentProfilePage from "../../Pages/CurrentProfile/CurrentProfilePage";
-import DogResultsPage from "../../Pages/DogResults/DogResultPage";
-import DogPenPage from "../../Pages/DogPen/DogPenPage";
+import Home from "../Pages/Home/Home";
+import CreateNewProfile from "../Pages/CreateNewProfile/CreateNewProfilePage";
+import CurrentProfilePage from "../Pages/CurrentProfile/CurrentProfilePage";
+import DogResultsPage from "../Pages/DogResults/DogResultPage";
+import DogPenPage from "../Pages/DogPen/DogPenPage";
 
 const routes = [
     {

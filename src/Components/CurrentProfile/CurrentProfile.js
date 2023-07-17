@@ -4,7 +4,7 @@ import profile from "../../assets/profile.png";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getUserName } from "../../const/selectors/user";
-import routes from "../../const/selectors/paths";
+import routes from "../../const/paths";
 
 const CurrentProfile = () => {
   const { t } = useTranslation();

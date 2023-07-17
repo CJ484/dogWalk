@@ -12,7 +12,7 @@ import Languagelist from "./Components/LanguageList/LanguageList";
 import { useTranslation } from "react-i18next";
 import CurrentProfile from "./Components/CurrentProfile/CurrentProfile";
 import { useSelector } from "react-redux";
-import routes from "./const/selectors/paths";
+import routes from "./const/paths";
 
 function App() {
   const { t } = useTranslation();
