@@ -4,8 +4,8 @@ import urls from "../../const/urls";
 export const apiDogCall = ({offsetAmount, parameters}) => {
   const dogApi = urls.dogNinjaApi;
   const key = process.env.REACT_APP_DOG;
-  const activeParameters = `${dogApi}&offset=${offsetAmount}&${parameters}`
-  const emptyParameters = `${dogApi}&offset=${offsetAmount}`;
+  const activeParameters = `${dogApi}?min_height=4&offset=${offsetAmount}&${parameters}`
+  const emptyParameters = `${dogApi}?min_height=4&offset=${offsetAmount}`;
 
   const urlRequest = parameters === undefined ? emptyParameters : activeParameters;
 
