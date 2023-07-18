@@ -33,7 +33,7 @@ function App() {
         <div className="button">
           <img className="icon" src={dogPen} alt="dogpen" />
           <h3>{t('dogpen.title')}</h3>
-          <h6>({dogPenNumber})</h6>
+          <h6>{dogPenNumber}</h6>
         </div>
       );
     }
