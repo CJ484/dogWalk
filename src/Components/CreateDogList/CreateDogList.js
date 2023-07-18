@@ -8,6 +8,7 @@ import CardTemplate from "../DogCardTemplate/DogCardTemplate";
 import { setLoading } from "../../Redux/Loading/LoadingSlice";
 import { setDataDog } from "../../Redux/DogResults/DogResultsRedux";
 import { apiDogCall } from "../../api/dogs/ApiCall";
+import UrlParameters from "../../api/dogs/UrlParameters";
 import { apiNameCall } from "../../api/name/apiCall";
 
 const CreateDogList = ({ isLoading, setLoading, setDataDog }) => {
@@ -17,25 +18,40 @@ const CreateDogList = ({ isLoading, setLoading, setDataDog }) => {
   const [dogInfos, setDogInfos] = useState([]);
   const [combinedDogData, setCombinedDogData] = useState([]);
   const [offsetAmount, setOffsetAmount] = useState(0);
+  const parameters = UrlParameters();
   const limitperPage = 20;
 
   useEffect(() => {
-    setLoadingTrue();
-    randomDogInfo();
-  }, []);
+    updateData();
+  }, [parameters, setOffsetAmount]);
   
   useEffect(() => {
     randomNameInfo();
   }, []);
 
+  const updateData = () => {
+    setLoadingTrue();
+    window.scrollTo(0, 0);
+    resetDogInfo();
+    randomDogInfo();
+  }
+
+  const resetDogInfo = () => {
+    setCombinedDogData();
+    setDogInfos([]);
+    setOffsetAmount(0);
+  }
+      
   //* This function is responsible for getting image, breed Name, size into the cards
   //* However it also saves the rest of the unused data. Set for 20 results per request
   const randomDogInfo = async () => {
-    await apiDogCall({offsetAmount})
+    await apiDogCall({offsetAmount, parameters})
     .then((results) => {
+      console.log("Api results",results);
       setDogInfos((prevDogs) => [...prevDogs, ...results]);
+      console.log(offsetAmount);
       setOffsetAmount((offset) => offset + limitperPage);
-      mergeData(dogNames, dogInfos);
+      mergeApiDatas(dogNames, dogInfos);
     })
   }
 
@@ -47,14 +63,15 @@ const CreateDogList = ({ isLoading, setLoading, setDataDog }) => {
       });
   };
 
-  //* After both Requests havea been completed, we merge them both into a 
-  //* singular object
-  const mergeData = (names, infos) => {
+  //* After both Requests have been completed, we merge them both into a 
+  //* singular array
+  const mergeApiDatas = (names, infos) => {
     const combinedList = infos.map((dg) => {
       const Namey = names[Math.floor(Math.random() * names.length)];
       return { ...dg, nameDog: Namey };
     });
     setCombinedDogData(combinedList);
+    console.log("after they combine the apis together",combinedDogData);
     dispatch(setDataDog(combinedList))
   };
 
