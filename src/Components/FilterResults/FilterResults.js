@@ -15,16 +15,10 @@ const FilterComponent = () => {
     dispatch(createList(filterNames));
   }, [dispatch, filterNames]);
 
-  const handleResultSelection = (result, name, value) => {
-    const updatedResults = filterNames.includes(result)
-      ? filterNames.filter((selectedResult) => selectedResult !== result)
-      : [...filterNames, result];
-    dispatch(setFilter(name, value));
-    setFilterNames(updatedResults);
-  };
-
   const handleCheckboxChange = (event, result) => {
-    const {name, value} = event.target
+    const {name} = event.target;
+    const value = valueChange(event);
+
     if (event.target.checked) {
       handleResultSelection(result, name, value);
     } else {
@@ -32,7 +26,21 @@ const FilterComponent = () => {
         (selectedResult) => selectedResult !== result
       );
       setFilterNames(updatedResults);
+      dispatch(setFilter({key: name, value}));
     }
+  };
+  
+  const valueChange = (event) => {
+    const {label} = event.target;
+    filterNames.includes(label);
+    return event.target.checked ? 5 : 0;
+  }
+
+  const handleResultSelection = (result, name, value) => {
+    const updatedResults = filterNames.includes(result)
+      ? filterNames.filter((selectedResult) => selectedResult !== result)
+      : [...filterNames, result];
+    setFilterNames(updatedResults);
     dispatch(setFilter({key: name, value}));
   };
 
@@ -44,38 +52,26 @@ const FilterComponent = () => {
         </h5>
         <Form.Check
           type="checkbox"
-          id="A"
           name="trainability"
-          value="5"
           label={t("filters.option-1")}
-          checked={filterNames.includes(t("filters.option-1"))}
           onChange={(e) => handleCheckboxChange(e, t("filters.option-1"))}
         />
         <Form.Check
           type="checkbox"
-          id="B"
           name="shedding"
-          value="5"
           label={t("filters.option-2")}
-          checked={filterNames.includes(t("filters.option-2"))}
           onChange={(e) => handleCheckboxChange(e, t("filters.option-2"))}
         />
         <Form.Check
           type="checkbox"
-          id="C"
           name="goodWithChildren"
-          value="5"
           label={t("filters.option-3")}
-          checked={filterNames.includes(t("filters.option-3"))}
           onChange={(e) => handleCheckboxChange(e, t("filters.option-3"))}
         />
         <Form.Check
           type="checkbox"
-          id="D"
           name="barking"
-          value={5}
           label={t("filters.option-4")}
-          checked={filterNames.includes(t("filters.option-4"))}
           onChange={(e) => handleCheckboxChange(e, t("filters.option-4"))}
         />
       </Form>
