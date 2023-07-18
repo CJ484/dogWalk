@@ -1,0 +1,16 @@
+button {
+    border: none;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    height: 45px;
+}
+
+.btn-danger {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    h6 {
+        margin: 6px 12px;
+    }
+}

@@ -1,84 +1,74 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import {
-  setFirstName,
-  setLastName,
-  setEmail,
-  clearForm
-} from '../../Redux/Actions/actions.js';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUser } from "../../Redux/User/userSlice.js";
+import "./NewProfile.styles.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
+import toast, { Toaster } from 'react-hot-toast';
 
-const ProfileForm = (props) => {
-  const {
-    firstName,
-    lastName,
-    email,
-    setFirstName,
-    setLastName,
-    setEmail,
-    clearForm
-  } = props;
+const NewProfile = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.reducer.user);
+  const { t } = useTranslation();
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
 
+  //TODO: move notifications to redux-saga
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      firstName,
-      lastName,
-      email
-    });
-    clearForm();
+    dispatch(updateUser({ username, email, phoneNumber }));
+    notify();
   };
 
+  const notify = () => toast.success(t("profile.toastSuccess"), {
+    id: 'profile'
+  });
+
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="firstName">First Name:</label>
+    <div className="profile">
+      <h2>{t("profile.title")}</h2>
+      <form onSubmit={handleSubmit}>
+        <FontAwesomeIcon icon={faUser} />
         <input
-          type="text"
-          id="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
           required
-        />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name:</label>
-        <input
+          className="inputs"
           type="text"
-          id="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
+          placeholder={t("profile.user")}
+          onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
+
+        <br />
+        <FontAwesomeIcon icon={faEnvelope} />
         <input
+          required
+          className="inputs"
           type="email"
-          id="email"
-          value={email}
+          placeholder={t("profile.email")}
           onChange={(e) => setEmail(e.target.value)}
-          required
         />
-      </div>
-      <button type="submit">Create Profile</button>
-    </form>
+
+        <br />
+        <FontAwesomeIcon icon={faPhone} />
+        <input
+          required
+          className="inputs"
+          type="tel"
+          placeholder={t("profile.phone")}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+        />
+
+        <br />
+        <input
+          className="submitButton"
+          type="submit"
+          value={t("profile.button")}
+        />
+      </form>
+      <Toaster />
+    </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    firstName: state.firstName,
-    lastName: state.lastName,
-    email: state.email,
-  };
-};
-
-const mapDispatchToProps = {
-  setFirstName,
-  setLastName,
-  setEmail,
-  clearForm,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileForm);
-// export default ProfileForm;
+export default NewProfile;

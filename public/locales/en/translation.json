@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "title": "NeighborMyDog",
+    "explore": "Explore Dogs",
+    "walker": "Become A Walker"
+  },
+
+  "home": {
+    "banner": "Become a dogs Social mentor, help him get the first paw out",
+    "bannerButton": "Explore Neighborhood Dogs",
+    "paragraph-1": "Approximately 4.1 million shelter animals are adopted each year (2\n million dogs) About 2 million dogs are adopted each year, but what\n about the other half needing a home. Most dogs are scared to go back\n out because they didn't have the guidance. With our help we can help\n them get their energenic personality and make them presentable to\n future families.",
+    "paragraph-2": "There are so many reasons to adopt: meeting a unique pet, spending\n less, doing a good deed—but let’s talk facts. Millions of pets enter\n shelters every year. And hundreds of thousands are euthanized each\n year. We don’t tell you that to guilt you or be a downer, but that’s\n why adoption really matters to us. So we would love it if you\n considered adopting. And, since you're here, we’re guessing you are.\n Seriously, no judgment if you find a pet another way (every pet parent\n journey is different!). But we’re here to help make adoption easier,\n however we can."
+  },
+
+  "filters": {
+    "title": "Filters",
+    "option-1": "Trainability",
+    "option-2": "Shedding",
+    "option-3": "Good with Children",
+    "option-4": "Barking"
+  },
+
+  "banner": {
+    "title": "Dog Meets World"
+  },
+
+  "card": {
+    "name" : "Name",
+    "handling": "Handling",
+    "breed": "Breed",
+    "button": "Add to DogPen"
+  },
+
+  "profile": {
+    "title": "Create New Profile",
+    "user": "UserName",
+    "email": "Email",
+    "phone": "Phone Number",
+    "button": "Update Profile",
+    "toastSuccess": "Profile Updated Successfully!"
+  },
+
+  "dogpen": {
+    "title": "DogPen",
+    "emptyHeader-1": "The DogPen is Empty",
+    "emptyHeader-2": "Start Looking To Help A Paw in Need",
+    "activeHeader-1": "Your Selected Pooch's"
+  },
+
+  "currentProfile": {
+    "title": "Current Profile",
+    "welcomingHeader": "Welcome Back",
+    "myProfile": "My Profile",
+    "user": "UserName",
+    "email": "Email",
+    "phone": "Phone Number"
+  }
+}

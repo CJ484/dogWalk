@@ -1,0 +1,10 @@
+@import '../../utils/_variables.scss';
+
+.Page {
+    display: flex;
+    background-color: $accent-color;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 91vh;
+}

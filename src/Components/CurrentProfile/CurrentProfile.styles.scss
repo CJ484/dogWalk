@@ -1,0 +1,39 @@
+@import '../../utils/_variables';
+.CurrentProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .speechBubble {
+        display: flex;
+        max-width: 400px;
+        width: 250px;
+        height: 40px;
+        padding-bottom: 20px;
+        margin: 0 12px 30px 0;
+        background: $background;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        h5 {
+            padding: 0 15px;
+        }
+    }
+    .speechBubble:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid $background;
+        border-top: 10px solid $background;
+        border-bottom: 10px solid transparent;
+        margin: 40px 0 0 190px;
+    }
+
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+    }
+}

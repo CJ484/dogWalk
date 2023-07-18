@@ -1,0 +1,48 @@
+@import "../../utils/_variables.scss";
+
+
+.cardGrid {
+    display: flex;
+    width: 1323px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.loaderPage {
+    width: 1343px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10%;
+}
+
+.infinite-scroll-component__outerdiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.infinite-scroll-component {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible !important;
+}
+
+.label {
+    color: rgb(133, 103, 41);
+}
+
+@media screen and (max-width: 1200px) {
+    .card {
+        width: 200px;
+    }
+    .card-img-top {
+        height: 180px;
+    }
+    .cardGrid {
+        max-width: 89%;
+    }
+}

@@ -1,8 +1,10 @@
-import pic from "../../assets/dogInCage.jpg"
+import { useTranslation } from 'react-i18next';
+import './Banner.styles.scss'
 function Banner() {
+    const { t } = useTranslation();
     return (
-        <div>
-            <img src={pic} alt="example"/>
+        <div className="banner">
+            <h1>{t('banner.title')}</h1>
         </div>
     )
 }

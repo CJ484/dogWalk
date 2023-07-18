@@ -1,0 +1,58 @@
+{
+  "nav": {
+    "title": "VecinoMiPerro",
+    "explore": "Explorar perros",
+    "walker": "Conviértete en un caminante"
+  },
+
+  "home": {
+    "banner": "Conviértete en un mentor social de perros, ayúdalo a sacar la primera pata",
+    "bannerButton": "Explora los perros del vecindario",
+    "paragraph-1": "Cada año se adoptan aproximadamente 4,1 millones de animales de refugio (2\n millones de perros). Cada año se adoptan alrededor de 2 millones de perros, pero ¿qué\n sobre la otra mitad que necesita un hogar. La mayoría de los perros tienen miedo de volver\n fuera porque no tenían la guía. Con nuestra ayuda podemos ayudar\n adquieren su personalidad enérgica y los hacen presentables a\n futuras familias.",
+    "paragraph-2": "Hay tantas razones para adoptar: conocer una mascota única, gastar\n menos, hacer una buena obra, pero hablemos de hechos. Entran millones de mascotas\n refugios cada año. Y cientos de miles son sacrificados cada\n año. No te decimos eso para sentirte culpable o ser un deprimente, pero eso es\n por qué la adopción es realmente importante para nosotros. Así que nos encantaría que usted\n consideró adoptar. Y, ya que estás aquí, suponemos que lo estás.\n En serio, no juzgues si encuentras una mascota de otra manera (todos los padres de mascotas\n ¡el viaje es diferente!). Pero estamos aquí para ayudar a que la adopción sea más fácil,\n como podamos."
+  },
+
+  "filters": {
+    "title": "Filtros",
+    "option-1": "Entrenabilidad",
+    "option-2": "Derramamiento",
+    "option-3": "Bueno con los niños",
+    "option-4": "Ladrido"
+  },
+
+  "banner": {
+    "title": "El perro se encuentra con el mundo"
+  },
+
+  "card": {
+    "name": "Nombre",
+    "handling": "Manejo",
+    "breed": "Criar",
+    "button": "Añadir a DogPen"
+  },
+
+  "profile": {
+    "title": "Crear nuevo perfil",
+    "user": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "phone": "Número de teléfono",
+    "button": "Actualización del perfil",
+    "toastSuccess": "Perfil actualizado!"
+  },
+
+  "dogpen": {
+    "title": "Perrera",
+    "emptyHeader-1": "La perrera está vacía",
+    "emptyHeader-2": "Comience a buscar ayudar a una pata necesitada",
+    "activeHeader-1": "Tu Perro Seleccionado"
+  },
+
+  "currentProfile": {
+    "title": "Perfil actual",
+    "welcomingHeader": "Bienvenido de nuevo",
+    "myProfile": "Mi Perfil",
+    "user": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "phone": "Número de teléfono"
+  }
+}
