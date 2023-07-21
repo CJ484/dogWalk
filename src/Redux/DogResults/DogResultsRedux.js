@@ -1,23 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const DogResults = createSlice({
-    name: "dogResults",
-    initialState: {
-        dogPen: [],
-        results: [],
+  name: 'dogResults',
+  initialState: {
+    dogPen: [],
+    results: [],
+  },
+  reducers: {
+    setDataDog: (state, action) => {
+      const resultsState = state;
+      resultsState.results = action.payload;
     },
-    reducers: {
-        setDataDog: (state, action) => {
-            state.results = action.payload;
-        },
-        addToDogPen: (state, action) => {
-            state.dogPen.push(action.payload);
-        },
-        removeFromDogPen: (state, action) => {
-            state.dogPen = state.dogPen.filter((index) => index !== action.payload)
-        }
-    }
-})
+    addToDogPen: (state, action) => {
+      const dogPenState = state;
+      dogPenState.dogPen.push(action.payload);
+    },
+    removeFromDogPen: (state, action) => {
+      const dogPenState = state;
+      dogPenState.dogPen = state.dogPen.filter((index) => index !== action.payload);
+    },
+  },
+});
 
 export const { setDataDog, addToDogPen, removeFromDogPen } = DogResults.actions;
 

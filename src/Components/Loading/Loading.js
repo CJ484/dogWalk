@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, connect } from "react-redux";
-import { setLoading } from "../../Redux/Loading/LoadingSlice.js";
-import SyncLoader from "react-spinners/SyncLoader";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import SyncLoader from 'react-spinners/SyncLoader';
+import { setLoading } from '../../Redux/Loading/LoadingSlice';
 
-const Loading = ({setLoading}) => {
+function Loading() {
   const dispatch = useDispatch();
   const setLoadingFalse = () => {
     dispatch(setLoading(false));
@@ -20,12 +20,6 @@ const Loading = ({setLoading}) => {
       <SyncLoader size={100} color="#FF9D28" />
     </div>
   );
-};
+}
 
-const mapStateToProps = (state) => {
-  return {
-    isLoading: state.reducer.loading.value,
-  };
-};
-
-export default connect(mapStateToProps, { setLoading })(Loading);
+export default Loading;

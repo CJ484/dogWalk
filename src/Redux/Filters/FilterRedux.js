@@ -1,25 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-// Initial state
 const initialState = {
   filters: {
     barking: 0,
     trainability: 0,
     goodWithChildren: 0,
-    shedding: 0 
+    shedding: 0,
   },
 };
 
-// Create slice
 const filters = createSlice({
-  name: "filter",
+  name: 'filter',
   initialState,
   reducers: {
     setFilter: (state, action) => {
+      const filterState = state;
       const { key, value } = action.payload;
-      state.filters[key] = value;
-    }
-  }
+      filterState.filters[key] = value;
+    },
+  },
 });
 
 // Extract actions and reducer from the slice

@@ -1,85 +1,62 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMagnifyingGlass,
   faPersonWalking,
-} from "@fortawesome/free-solid-svg-icons";
-import "./globalStyles.scss";
-import dogPen from "./assets/dogPen.png";
-import whitePaw from "./assets/orangePawPrint.png";
-import Languagelist from "./Components/LanguageList/LanguageList";
-import { useTranslation } from "react-i18next";
-import CurrentProfile from "./Components/CurrentProfile/CurrentProfile";
-import { useSelector } from "react-redux";
-import routes from "./const/paths";
+} from '@fortawesome/free-solid-svg-icons';
+import './globalStyles.scss';
+import { useTranslation } from 'react-i18next';
+import whitePaw from './assets/orangePawPrint.png';
+import Languagelist from './Components/LanguageList/LanguageList';
+import CurrentProfile from './Components/CurrentProfile/CurrentProfile';
+import DogPenNavButton from './Components/DogPenNavButton/DogPenAddButton';
+import routes from './const/paths';
 
 function App() {
   const { t } = useTranslation();
-  const dogPenNumber = useSelector(
-    (state) => state.reducer.dogResults.dogPen.length
-  );
-
-  const DogPen = () => {
-    if (dogPenNumber === 0) {
-      return (
-        <div className="button">
-          <img className="icon" src={dogPen} alt="dogpen" />
-          <h3>{t('dogpen.title')}</h3>
-        </div>
-      );
-    } else {
-      return (
-        <div className="button">
-          <img className="icon" src={dogPen} alt="dogpen" />
-          <h3>{t('dogpen.title')}</h3>
-          <h6>{dogPenNumber}</h6>
-        </div>
-      );
-    }
-  };
 
   return (
     <div className="App">
       <header>
-        <Link exact="true" to={routes[0].path} className="HomeLink">
-          <h1>{t("nav.title")}</h1>
+        <Link exact="true" to={routes.HOME.path} className="HomeLink">
+          <h1>{t('nav.title')}</h1>
           <img src={whitePaw} alt="white paw" />
         </Link>
         <Link
           exact="true"
-          to={routes[1].path}
+          to={routes.DOG_RESULTS.path}
           className="links"
         >
           <div className="button">
             <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
-            <h3>{t("nav.explore")}</h3>
+            <h3>{t('nav.explore')}</h3>
           </div>
         </Link>
         <Link
           exact="true"
-          to={routes[2].path}
+          to={routes.CREATE_NEW_PROFILE.path}
           className="links"
         >
           <div className="button">
             <FontAwesomeIcon icon={faPersonWalking} size="lg" />
-            <h3>{t("nav.walker")}</h3>
+            <h3>{t('nav.walker')}</h3>
           </div>
         </Link>
-        <Link exact="true" to={routes[3].path} className="links">
-          <DogPen />
+        <Link exact="true" to={routes.DOGPEN.path} className="links">
+          <DogPenNavButton />
         </Link>
         <CurrentProfile className="links" />
         <Languagelist />
       </header>
 
       <Routes>
-        {routes.map((route, index) => (
-          <Route 
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          element={route.element}
+        {Object.values(routes).map((route) => (
+          <Route
+            key={route.title}
+            path={route.path}
+            exact={route.exact}
+            element={route.element}
           />
         ))}
 

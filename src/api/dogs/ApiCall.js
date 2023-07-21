@@ -1,25 +1,22 @@
-import axios from "axios";
-import urls from "../../const/urls";
+import axios from 'axios';
+import urls from '../../const/urls';
 
-export const apiDogCall = ({offsetAmount, parameters}) => {
+const apiDogCall = async ({ offsetAmount, parameters }) => {
   const dogApi = urls.dogNinjaApi;
   const key = process.env.REACT_APP_DOG;
-  const activeParameters = `${dogApi}?min_height=4&offset=${offsetAmount}&${parameters}`
+  const activeParameters = `${dogApi}?min_height=4&offset=${offsetAmount}&${parameters}`;
   const emptyParameters = `${dogApi}?min_height=4&offset=${offsetAmount}`;
-
   const urlRequest = parameters === undefined ? emptyParameters : activeParameters;
-
-  return axios
-    .get(urlRequest, {
-      headers: { "X-Api-Key": key },
-    })
-    .then((results) => {
-      return results.data
-    })
-    .catch((error) => {
-      if(error.response?.status === 400) {
-        console.error(`could not find url`, error.data);
-        return undefined;
-      }
-    });
+  const finalResults = () => {
+    axios
+      .get(urlRequest, {
+        headers: { 'X-Api-Key': key },
+      })
+      .then((results) => results.data)
+      // eslint-disable-next-line no-console
+      .catch((error) => console.error('could not find url', error.data));
+  };
+  return finalResults;
 };
+
+export default apiDogCall;

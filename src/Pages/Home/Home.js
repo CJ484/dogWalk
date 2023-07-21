@@ -1,13 +1,14 @@
-import React from "react";
-import './Home.styles.scss'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../globalStyles.scss";
+/* eslint-disable import/no-cycle */
+import React from 'react';
+import './Home.styles.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../../globalStyles.scss';
 import { useTranslation } from 'react-i18next';
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import cageDog from "../../assets/dogInCage.jpg";
-import dogHug from "../../assets/huggingDog.jpg";
-import { Link } from "react-router-dom";
-import routes from "../../const/paths";
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import cageDog from '../../assets/dogInCage.jpg';
+import dogHug from '../../assets/huggingDog.jpg';
+import DOG_RESULTS from '../../const/paths';
 
 function Home() {
   const { t } = useTranslation();
@@ -16,12 +17,12 @@ function Home() {
       <div className="MainBanner">
         <h1>{t('home.banner')}</h1>
         <div className="twoButtons">
-          <Link exact="true" to={routes[1].path}>
-          <button>
-            <h2>{t('home.bannerButton')}</h2>
-          </button>
+          <Link exact="true" to={DOG_RESULTS}>
+            <button type="button">
+              <h2>{t('home.bannerButton')}</h2>
+            </button>
           </Link>
-          <FontAwesomeIcon icon={faChevronDown} href="#FirstSection"/>
+          <FontAwesomeIcon icon={faChevronDown} href="#FirstSection" />
         </div>
       </div>
       <div className="FirstSection" id="FirstSection">

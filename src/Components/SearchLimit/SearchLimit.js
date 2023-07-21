@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import "./searchLimit.styles.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 export default function Limit({ setPageLimit, pageLimit }) {
   const setLimit = (s) => {

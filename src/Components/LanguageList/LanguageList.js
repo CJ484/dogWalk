@@ -1,9 +1,9 @@
-import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import { useTranslation } from "react-i18next";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
-import locales from "../../const/locales.js";
+import React from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons';
+import locales from '../../const/locales';
 
 export default function Languagelist() {
   const { i18n } = useTranslation();
