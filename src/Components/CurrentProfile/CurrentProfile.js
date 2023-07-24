@@ -26,8 +26,8 @@ function CurrentProfile() {
           </b>
         </h5>
       </div>
-      <Link exact="true" to={routes.CURRENT_PROFILE.path} className="myProfile">
-        <div>
+      <Link exact="true" to={routes.CURRENT_PROFILE.path}>
+        <div className="myProfile">
           <img src={profile} alt="profile" />
           <h5>{t('currentProfile.myProfile')}</h5>
         </div>

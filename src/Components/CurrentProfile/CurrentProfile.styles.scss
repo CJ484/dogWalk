@@ -10,7 +10,7 @@
         width: 250px;
         height: 40px;
         padding-bottom: 20px;
-        margin: 0 12px 30px 0;
+        margin: 0 0 50px 0;
         background: $background;
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
@@ -28,12 +28,25 @@
         border-right: 10px solid $background;
         border-top: 10px solid $background;
         border-bottom: 10px solid transparent;
-        margin: 40px 0 0 190px;
+        margin: 40px 0 0 220px;
     }
-
     img {
         height: 50px;
         width: 50px;
         border-radius: 50px;
+    }
+    .myProfile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        margin: 5px;
+        border: 3px solid $main-color;
+        border-radius: 5px;
+    }
+    .myProfile:hover {
+        border-color: $accent-color;
+        filter: brightness(1.50);
     }
 }
