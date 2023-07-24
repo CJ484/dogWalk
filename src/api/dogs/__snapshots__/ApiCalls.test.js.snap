@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`apiDogCall should handle API call error 1`] = `undefined`;
+
+exports[`apiDogCall should make a successful API call 1`] = `
+{
+  "mockResponse": "data",
+}
+`;
