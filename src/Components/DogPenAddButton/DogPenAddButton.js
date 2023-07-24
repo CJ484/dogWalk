@@ -8,8 +8,8 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { addToDogPen, removeFromDogPen } from '../../Redux/DogResults/DogResultsRedux';
 
 function DogPenAddButton({ index }) {
-  const T = (text) => useTranslation(text);
-  const Dispatch = (action) => useDispatch(action);
+  const { t } = useTranslation();
+  const Dispatch = useDispatch();
   const [dogPenActive, setDogPenActive] = useState(false);
 
   const addDogData = (input) => {
@@ -33,7 +33,7 @@ function DogPenAddButton({ index }) {
   }
   return (
     <button type="button" className="btn btn-warning" onClick={() => addDogData(index)}>
-      {T('card.button')}
+      {t('card.button')}
     </button>
   );
 }
