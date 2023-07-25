@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
@@ -21,14 +20,9 @@ function CreateDogList({ isLoading }) {
   const [dogInfos, setDogInfos] = useState([]);
   const [combinedDogData, setCombinedDogData] = useState([]);
   const [offsetAmount, setOffsetAmount] = useState(0);
+  const dataContinues = true;
   const parameters = UrlParameters();
   const limitperPage = 20;
-
-  const resetDogInfo = () => {
-    setCombinedDogData();
-    setDogInfos([]);
-    setOffsetAmount(0);
-  };
 
   //* After both Requests have been completed, we merge them both into a
   //* singular array
@@ -38,54 +32,44 @@ function CreateDogList({ isLoading }) {
       return { ...dg, nameDog: Namey };
     });
     setCombinedDogData(combinedList);
-    console.log('after they combine the apis together', combinedDogData);
     dispatch(setDataDog(combinedList));
+    return combinedList;
+  };
+
+  //* Requests a random name, its currently set for 50 names
+  const randomNameInfo = async () => {
+    await apiNameCall().then((results) => setDogNames(results));
   };
 
   //* This function is responsible for getting image, breed Name, size into the cards
   //* However it also saves the rest of the unused data. Set for 20 results per request
   const randomDogInfo = async () => {
     await apiDogCall({ offsetAmount, parameters }).then((results) => {
-      console.log('Api results', results);
       setDogInfos((prevDogs) => [...prevDogs, ...results]);
-      console.log(offsetAmount);
       setOffsetAmount((offset) => offset + limitperPage);
-      mergeApiDatas(dogNames, dogInfos);
-    });
+    }).finally(mergeApiDatas(dogNames, dogInfos));
   };
-
-  //* Requests a random name, its currently set for 50 names
-  const randomNameInfo = async () => {
-    await apiNameCall().then((results) => {
-      setDogNames(results);
-    });
-  };
-
-  if (isLoading === true) {
-    return <Loading />;
-  }
-
-  const updateData = () => {
-    setLoadingTrue();
-    window.scrollTo(0, 0);
-    resetDogInfo();
-    randomDogInfo();
-  };
-
-  useEffect(() => {
-    updateData();
-  }, [parameters, setOffsetAmount]);
 
   useEffect(() => {
     randomNameInfo();
   }, []);
+
+  useEffect(() => {
+    setLoadingTrue();
+    window.scrollTo(0, 0);
+    randomDogInfo();
+  }, [setCombinedDogData]);
+
+  if (isLoading === true) {
+    return <Loading />;
+  }
 
   return (
     <div>
       <InfiniteScroll
         next={randomDogInfo}
         loader={<Loading />}
-        hasMore
+        hasMore={dataContinues}
         dataLength={dogInfos.length}
       >
         <CardTemplate combinedDogData={combinedDogData} />
