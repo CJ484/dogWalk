@@ -7,17 +7,17 @@ import DogPenAddButton from '../DogPenAddButton/DogPenAddButton';
 
 function CardTemplate({ combinedDogData }) {
   const { t } = useTranslation();
+  const cardId = useId();
   // eslint-disable-next-line no-console
-  console.log(combinedDogData);
   return (
     <div className="cardGrid">
       {combinedDogData.map((data, index) => {
-        const cardId = useId();
+        const newId = cardId;
         const {
           name, nameDog, trainability, image_link,
         } = data;
         return (
-          <div key={cardId} className="Card">
+          <div key={newId} className="Card">
             <div className="col-md-4">
               <div className="card">
                 <img src={image_link} className="card-img-top" alt="Dog" />
