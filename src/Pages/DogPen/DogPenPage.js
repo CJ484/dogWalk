@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './DogPenPage.styles.scss';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import CardTemplate from '../../Components/DogCardTemplate/DogCardTemplate';
+import DogCardTemplateList from '../../Components/DogCardTemplateList/DogCardTemplateList';
 
 function DogPenPage() {
   const { t } = useTranslation();
@@ -34,7 +34,7 @@ function DogPenPage() {
     <div className="DogPen">
       <div className="activeDogpen">
         <h1>{t('dogpen.activeHeader-1')}</h1>
-        <CardTemplate combinedDogData={combinedDogData} />
+        <DogCardTemplateList combinedDogData={combinedDogData} />
       </div>
     </div>
   );

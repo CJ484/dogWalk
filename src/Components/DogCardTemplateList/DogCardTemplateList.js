@@ -2,13 +2,12 @@
 import React, { useId } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import './DogCardTemplate.styles.scss';
+import './DogCardTemplateList.styles.scss';
 import DogPenAddButton from '../DogPenAddButton/DogPenAddButton';
 
-function CardTemplate({ combinedDogData }) {
+function DogCardTemplateList({ combinedDogData }) {
   const { t } = useTranslation();
   const cardId = useId();
-  // eslint-disable-next-line no-console
   return (
     <div className="cardGrid">
       {combinedDogData.map((data, index) => {
@@ -48,7 +47,7 @@ function CardTemplate({ combinedDogData }) {
   );
 }
 
-CardTemplate.propTypes = {
+DogCardTemplateList.propTypes = {
   combinedDogData: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -59,4 +58,4 @@ CardTemplate.propTypes = {
   ).isRequired,
 };
 
-export default CardTemplate;
+export default DogCardTemplateList;

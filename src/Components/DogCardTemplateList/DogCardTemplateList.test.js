@@ -2,7 +2,7 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import store from '../../Redux/store/store';
-import CardTemplate from './DogCardTemplate';
+import CardTemplate from './DogCardTemplateList';
 
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn().mockReturnValue({ t: (key) => key }),

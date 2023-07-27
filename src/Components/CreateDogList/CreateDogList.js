@@ -4,7 +4,7 @@ import './CreateDogList.styles.scss';
 import { connect, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading/Loading';
-import CardTemplate from '../DogCardTemplate/DogCardTemplate';
+import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
 import { setLoading } from '../../Redux/Loading/LoadingSlice';
 import { setDataDog } from '../../Redux/DogResults/DogResultsRedux';
 import apiDogCall from '../../api/dogs/ApiCall';
@@ -72,7 +72,7 @@ function CreateDogList({ isLoading }) {
         hasMore={dataContinues}
         dataLength={dogInfos.length}
       >
-        <CardTemplate combinedDogData={combinedDogData} />
+        <DogCardTemplateList combinedDogData={combinedDogData} />
       </InfiniteScroll>
     </div>
   );
