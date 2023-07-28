@@ -1,10 +1,9 @@
-
-import { combineReducers } from "redux";
-import loadingReducer from "./Loading/LoadingSlice.js";
-import userReducer from './User/userSlice.js';
-import filterReducer from './Filters/FilterRedux.js';
-import displayFiltersReducer from './Filters/DisplayFilterRedux.js';
-import dogResultsReducer from './DogResults/DogResultsRedux.js'
+import { combineReducers } from 'redux';
+import loadingReducer from './Loading/LoadingSlice';
+import userReducer from './User/userSlice';
+import filterReducer from './Filters/FilterRedux';
+import displayFiltersReducer from './Filters/DisplayFilterRedux';
+import dogResultsReducer from './DogResults/DogResultsRedux';
 
 const rootReducer = combineReducers({
   loading: loadingReducer,
