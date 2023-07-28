@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { sample } from 'lodash';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
 import { connect, useDispatch } from 'react-redux';
@@ -28,8 +29,8 @@ function CreateDogList({ isLoading }) {
   //* singular array
   const mergeApiDatas = (names, infos) => {
     const combinedList = infos.map((dg) => {
-      const Namey = names[Math.floor(Math.random() * names.length)];
-      return { ...dg, nameDog: Namey };
+      const Names = sample(names);
+      return { ...dg, nameDog: Names };
     });
     setCombinedDogData(combinedList);
     dispatch(setDataDog(combinedList));
@@ -60,7 +61,7 @@ function CreateDogList({ isLoading }) {
     randomDogInfo();
   }, [setCombinedDogData]);
 
-  if (isLoading === true) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -86,4 +87,4 @@ CreateDogList.propTypes = {
   isLoading: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, { setLoading, setDataDog })(CreateDogList);
+export default connect(mapStateToProps)(CreateDogList);

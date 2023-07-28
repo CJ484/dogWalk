@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { isEqual } from 'lodash';
 import './DisplayFilters.styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,7 +22,7 @@ function DisplayFilters() {
     setFilterNames(selectedFilters);
   }, [dispatch, filterNames, setFilterNames, selectedFilters]);
 
-  if (selectedFilters.length === 0) {
+  if (isEqual(selectedFilters.length, 0)) {
     return <div />;
   }
   return (

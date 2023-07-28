@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { isEqual } from 'lodash';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './DogPenAddButton.styles.scss';
@@ -22,7 +23,7 @@ function DogPenAddButton({ index }) {
     setDogPenActive(false);
   };
 
-  if (dogPenActive === true) {
+  if (isEqual(dogPenActive, true)) {
     return (
       <button type="button" className="btn btn-danger test" onClick={() => removeDogData(index)}>
         <FontAwesomeIcon icon={faTrashCan} />

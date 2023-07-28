@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmpty from 'lodash/isEmpty';
 import './CurrentProfile.styles.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ function CurrentProfile() {
   const user = getUserName();
 
   // TODO I should impplement the react-textarea-autosize
-  if (user === '') {
+  if (isEmpty(user)) {
     return <div />;
   }
   return (
