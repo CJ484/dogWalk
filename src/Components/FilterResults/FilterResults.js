@@ -15,12 +15,6 @@ function FilterComponent() {
     dispatch(createList(filterNames));
   }, [dispatch, filterNames]);
 
-  const valueChange = (event) => {
-    const { label } = event.target;
-    filterNames.includes(label);
-    return event.target.checked ? 5 : 0;
-  };
-
   const handleResultSelection = (result, name, value) => {
     const updatedResults = filterNames.includes(result)
       ? filterNames.filter((selectedResult) => selectedResult !== result)
@@ -31,17 +25,8 @@ function FilterComponent() {
 
   const handleCheckboxChange = (event, result) => {
     const { name } = event.target;
-    const value = valueChange(event);
-
-    if (event.target.checked) {
-      handleResultSelection(result, name, value);
-    } else {
-      const updatedResults = filterNames.filter(
-        (selectedResult) => selectedResult !== result,
-      );
-      setFilterNames(updatedResults);
-      dispatch(setFilter({ key: name, value }));
-    }
+    const value = event.target.checked ? 5 : 0;
+    handleResultSelection(result, name, value);
   };
 
   return (
