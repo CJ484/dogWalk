@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import './NewProfile.styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 import { updateUser } from '../../Redux/User/userSlice';
+import { getAllUserInfo } from '../../const/selectors/user';
 
 function NewProfile() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.reducer.user);
+  const user = getAllUserInfo;
   const { t } = useTranslation();
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);

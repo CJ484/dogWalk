@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import './CurrentProfilePage.styles.scss';
 import { useTranslation } from 'react-i18next';
+import { getAllUserInfo } from '../../const/selectors/user';
 
 function CurrentProfilePage() {
   const { t } = useTranslation();
-  const profileInfo = useSelector((state) => state.reducer.user);
+  const profileInfo = getAllUserInfo;
   return (
     <div className="Page">
       <div className="currentProfile">

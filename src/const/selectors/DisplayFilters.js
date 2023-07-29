@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
 
-const FilterDogValuesSelector = () => useSelector((state) => state.reducer.filterDogs.filters);
+const getFilterList = () => useSelector((state) => state.reducer.displayFilters.filterList);
 
-export default FilterDogValuesSelector;
+export default getFilterList;

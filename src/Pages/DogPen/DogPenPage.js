@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './DogPenPage.styles.scss';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import DogCardTemplateList from '../../Components/DogCardTemplateList/DogCardTemplateList';
+import { getDogResults, getDogResultsDogPen } from '../../const/selectors/selectorDogResults';
 
 function DogPenPage() {
   const { t } = useTranslation();
-  const selectedDogs = useSelector((state) => state.reducer.dogResults.dogPen);
-  const dogData = useSelector((state) => state.reducer.dogResults.results);
+  const selectedDogs = getDogResultsDogPen();
+  const dogData = getDogResults();
   const data = useState(dogData);
   const [combinedDogData, setCombinedDogData] = useState([]);
 
