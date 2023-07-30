@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import whitePaw from './assets/orangePawPrint.png';
 import Languagelist from './Components/LanguageList/LanguageList';
 import CurrentProfile from './Components/CurrentProfile/CurrentProfile';
-import DogPenNavButton from './Components/DogPenNavButton/DogPenAddButton';
+import DogPenNavButton from './Components/DogPenNavButton/DogPenNavButton';
 import routes from './const/paths';
 
 function App() {

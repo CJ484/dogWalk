@@ -8,9 +8,9 @@ import Loading from '../Loading/Loading';
 import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
 import { setLoading } from '../../Redux/Loading/LoadingSlice';
 import { setDataDog } from '../../Redux/DogResults/DogResultsRedux';
-import apiDogCall from '../../api/dogs/ApiCall';
+import apiDogCall from '../../api/dogs/ApiDogCall';
 import UrlParameters from '../../api/dogs/UrlParameters';
-import apiNameCall from '../../api/name/apiCall';
+import apiNameCall from '../../api/name/apiNameCall';
 
 function CreateDogList({ isLoading }) {
   const dispatch = useDispatch();
