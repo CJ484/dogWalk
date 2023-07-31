@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { useId } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './DogCardTemplateList.styles.scss';
@@ -7,16 +7,15 @@ import DogPenAddButton from '../DogPenAddButton/DogPenAddButton';
 
 function DogCardTemplateList({ combinedDogData }) {
   const { t } = useTranslation();
-  const cardId = useId();
   return (
     <div className="cardGrid">
       {combinedDogData.map((data, index) => {
-        const newId = cardId;
         const {
           name, nameDog, trainability, image_link,
         } = data;
+        const key = `${index}${name}+${nameDog}`;
         return (
-          <div key={newId} className="Card">
+          <div key={key} className="Card">
             <div className="col-md-4">
               <div className="card">
                 <img src={image_link} className="card-img-top" alt="Dog" />
