@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import FilterDogValuesSelector from '../../const/selectors/DisplayFilters';
+import getFilterValue from '../../const/selectors/filterValues';
 
 const UrlParameters = () => {
-  const filterDogsRedux = FilterDogValuesSelector();
+  const filterDogsRedux = getFilterValue();
   const [lastUrl, setLastUrl] = useState();
 
   useEffect(() => {

@@ -1,16 +1,16 @@
-/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
+import { sample } from 'lodash';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
 import { connect, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading/Loading';
-import CardTemplate from '../DogCardTemplate/DogCardTemplate';
+import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
 import { setLoading } from '../../Redux/Loading/LoadingSlice';
 import { setDataDog } from '../../Redux/DogResults/DogResultsRedux';
-import apiDogCall from '../../api/dogs/ApiCall';
+import apiDogCall from '../../api/dogs/ApiDogCall';
 import UrlParameters from '../../api/dogs/UrlParameters';
-import apiNameCall from '../../api/name/apiCall';
+import apiNameCall from '../../api/name/apiNameCall';
 
 function CreateDogList({ isLoading }) {
   const dispatch = useDispatch();
@@ -21,74 +21,59 @@ function CreateDogList({ isLoading }) {
   const [dogInfos, setDogInfos] = useState([]);
   const [combinedDogData, setCombinedDogData] = useState([]);
   const [offsetAmount, setOffsetAmount] = useState(0);
+  const dataContinues = true;
   const parameters = UrlParameters();
   const limitperPage = 20;
-
-  const resetDogInfo = () => {
-    setCombinedDogData();
-    setDogInfos([]);
-    setOffsetAmount(0);
-  };
 
   //* After both Requests have been completed, we merge them both into a
   //* singular array
   const mergeApiDatas = (names, infos) => {
     const combinedList = infos.map((dg) => {
-      const Namey = names[Math.floor(Math.random() * names.length)];
-      return { ...dg, nameDog: Namey };
+      const Names = sample(names);
+      return { ...dg, nameDog: Names };
     });
     setCombinedDogData(combinedList);
-    console.log('after they combine the apis together', combinedDogData);
     dispatch(setDataDog(combinedList));
+    return combinedList;
+  };
+
+  //* Requests a random name, its currently set for 50 names
+  const randomNameInfo = async () => {
+    await apiNameCall().then((results) => setDogNames(results));
   };
 
   //* This function is responsible for getting image, breed Name, size into the cards
   //* However it also saves the rest of the unused data. Set for 20 results per request
   const randomDogInfo = async () => {
     await apiDogCall({ offsetAmount, parameters }).then((results) => {
-      console.log('Api results', results);
       setDogInfos((prevDogs) => [...prevDogs, ...results]);
-      console.log(offsetAmount);
       setOffsetAmount((offset) => offset + limitperPage);
-      mergeApiDatas(dogNames, dogInfos);
-    });
+    }).finally(mergeApiDatas(dogNames, dogInfos));
   };
-
-  //* Requests a random name, its currently set for 50 names
-  const randomNameInfo = async () => {
-    await apiNameCall().then((results) => {
-      setDogNames(results);
-    });
-  };
-
-  if (isLoading === true) {
-    return <Loading />;
-  }
-
-  const updateData = () => {
-    setLoadingTrue();
-    window.scrollTo(0, 0);
-    resetDogInfo();
-    randomDogInfo();
-  };
-
-  useEffect(() => {
-    updateData();
-  }, [parameters, setOffsetAmount]);
 
   useEffect(() => {
     randomNameInfo();
   }, []);
+
+  useEffect(() => {
+    setLoadingTrue();
+    window.scrollTo(0, 0);
+    randomDogInfo();
+  }, [setCombinedDogData]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
       <InfiniteScroll
         next={randomDogInfo}
         loader={<Loading />}
-        hasMore
+        hasMore={dataContinues}
         dataLength={dogInfos.length}
       >
-        <CardTemplate combinedDogData={combinedDogData} />
+        <DogCardTemplateList combinedDogData={combinedDogData} />
       </InfiniteScroll>
     </div>
   );
@@ -102,4 +87,4 @@ CreateDogList.propTypes = {
   isLoading: PropTypes.bool.isRequired,
 };
 
-export default connect(mapStateToProps, { setLoading, setDataDog })(CreateDogList);
+export default connect(mapStateToProps)(CreateDogList);

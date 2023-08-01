@@ -1,14 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { isEqual } from 'lodash';
 import { useTranslation } from 'react-i18next';
 import dogPen from '../../assets/dogPen.png';
+import { getDogResultsDogPen } from '../../const/selectors/selectorDogResults';
 
 function DogPenNavButton() {
   const { t } = useTranslation();
-  const dogPenNumber = useSelector(
-    (state) => state.reducer.dogResults.dogPen.length,
-  );
-  if (dogPenNumber === 0) {
+  const dogPenNumber = getDogResultsDogPen().length;
+  if (isEqual(dogPenNumber, 0)) {
     return (
       <div className="button">
         <img className="icon" src={dogPen} alt="dogpen" />
