@@ -3,7 +3,7 @@ import getFilterValue from '../../const/selectors/filterValues';
 
 const UrlParameters = () => {
   const filterDogsRedux = getFilterValue();
-  const [lastUrl, setLastUrl] = useState();
+  const [lastUrl, setLastUrl] = useState('');
 
   useEffect(() => {
     const newParameter = new URLSearchParams();
