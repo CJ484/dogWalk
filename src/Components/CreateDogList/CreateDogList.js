@@ -1,90 +1,66 @@
 import React, { useEffect, useState } from 'react';
-import { sample } from 'lodash';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
 import { connect, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading/Loading';
 import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
-import { setLoading } from '../../Redux/Loading/LoadingSlice';
-import { setDataDog } from '../../Redux/DogResults/DogResultsRedux';
-import apiDogCall from '../../api/dogs/ApiDogCall';
 import UrlParameters from '../../api/dogs/UrlParameters';
-import apiNameCall from '../../api/name/apiNameCall';
+import { fetchNameDataStart } from '../../Redux/Names/NamesRedux';
+import grabMergeData from '../../const/selectors/mergedApi';
+import { updateOffset, updateParameters } from '../../Redux/UrlConstruct/UrlConstrucRedux';
+import { fetchDogDataStart } from '../../Redux/DogResults/DogResultsRedux';
 
-function CreateDogList({ isLoading }) {
+function CreateDogList({ dogLoading }) {
   const dispatch = useDispatch();
-  const setLoadingTrue = () => {
-    dispatch(setLoading(true));
-  };
-  const [dogNames, setDogNames] = useState([]);
-  const [dogInfos, setDogInfos] = useState([]);
-  const [combinedDogData, setCombinedDogData] = useState([]);
+  const [newCDData, setNewCDData] = useState([]);
   const [offsetAmount, setOffsetAmount] = useState(0);
   const dataContinues = true;
   const parameters = UrlParameters();
   const limitperPage = 20;
+  const finalData = grabMergeData();
 
-  //* After both Requests have been completed, we merge them both into a
-  //* singular array
-  const mergeApiDatas = (names, infos) => {
-    const combinedList = infos.map((dg) => {
-      const Names = sample(names);
-      return { ...dg, nameDog: Names };
-    });
-    setCombinedDogData(combinedList);
-    dispatch(setDataDog(combinedList));
-    return combinedList;
+  //* This function will execute when button is pressed
+  //* it will activate the saga cycle
+  const fetchDogApiData = async () => {
+    dispatch(fetchNameDataStart());
+    dispatch(fetchDogDataStart());
+    setOffsetAmount((offset) => offset + limitperPage);
+    dispatch(updateOffset(offsetAmount));
+    setNewCDData(finalData);
   };
 
-  //* Requests a random name, its currently set for 50 names
-  const randomNameInfo = async () => {
-    await apiNameCall().then((results) => setDogNames(results));
-  };
-
-  //* This function is responsible for getting image, breed Name, size into the cards
-  //* However it also saves the rest of the unused data. Set for 20 results per request
-  const randomDogInfo = async () => {
-    await apiDogCall({ offsetAmount, parameters }).then((results) => {
-      setDogInfos((prevDogs) => [...prevDogs, ...results]);
-      setOffsetAmount((offset) => offset + limitperPage);
-    }).finally(mergeApiDatas(dogNames, dogInfos));
-  };
-
+  //* When ever the parameters are changed this will trigger the dispatch of updating parameters
   useEffect(() => {
-    randomNameInfo();
-  }, []);
-
-  useEffect(() => {
-    setLoadingTrue();
+    dispatch(updateParameters(parameters));
     window.scrollTo(0, 0);
-    randomDogInfo();
-  }, [setCombinedDogData]);
+  }, [parameters]);
 
-  if (isLoading) {
+  if (dogLoading) {
     return <Loading />;
   }
 
   return (
     <div>
       <InfiniteScroll
-        next={randomDogInfo}
+        next={fetchDogApiData}
         loader={<Loading />}
         hasMore={dataContinues}
-        dataLength={dogInfos.length}
+        dataLength={newCDData.length}
       >
-        <DogCardTemplateList combinedDogData={combinedDogData} />
+        {/* <button type="button" onClick={() => fetchApiData()}>Click Me</button> */}
+        <DogCardTemplateList combinedDogData={newCDData} />
       </InfiniteScroll>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  isLoading: state.reducer.loading.value,
+  dogLoading: state.reducer.dogResults.loading,
 });
 
 CreateDogList.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
+  dogLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(CreateDogList);
