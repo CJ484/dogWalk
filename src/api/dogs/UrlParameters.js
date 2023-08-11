@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
-import getFilterValue from '../../const/selectors/filterValues';
+const UrlParameters = ({ filterValues }) => {
+  const filterDogsRedux = filterValues;
+  let lastUrl = '';
 
-const UrlParameters = () => {
-  const filterDogsRedux = getFilterValue();
-  const [lastUrl, setLastUrl] = useState('');
-
-  useEffect(() => {
+  const updateUrl = () => {
     const newParameter = new URLSearchParams();
+
     const addParams = () => {
       Object.keys(filterDogsRedux).forEach((key) => {
         if (filterDogsRedux[key] === 5) {
@@ -14,17 +12,25 @@ const UrlParameters = () => {
         }
       });
     };
+
     const removeParams = () => {
       Object.keys(filterDogsRedux).forEach((key) => {
         if (filterDogsRedux[key] === '') {
-          newParameter.delete(key, filterDogsRedux[key]);
+          newParameter.delete(key);
         }
       });
     };
+
     addParams();
     removeParams();
-    setLastUrl(`${newParameter.toString()}`);
-  }, [filterDogsRedux, lastUrl]);
+    lastUrl = newParameter.toString();
+  };
+
+  const handleFilterChange = () => {
+    updateUrl();
+  };
+
+  handleFilterChange();
 
   return lastUrl;
 };
