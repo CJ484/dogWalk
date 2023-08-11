@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import SyncLoader from 'react-spinners/SyncLoader';
-import { setLoading } from '../../Redux/Loading/LoadingSlice';
+import { changeLoading } from '../../Redux/Dog/DogResultsRedux';
 
 function Loading() {
   const dispatch = useDispatch();
   const setLoadingFalse = () => {
-    dispatch(setLoading(false));
+    dispatch(changeLoading(false));
   };
 
   useEffect(() => {

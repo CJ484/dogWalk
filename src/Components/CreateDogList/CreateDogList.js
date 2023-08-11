@@ -1,42 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
 import { connect, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading/Loading';
 import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
-import UrlParameters from '../../api/dogs/UrlParameters';
 import { fetchNameDataStart } from '../../Redux/Names/NamesRedux';
-import grabMergeData from '../../const/selectors/mergedApi';
-import { updateOffset, updateParameters } from '../../Redux/UrlConstruct/UrlConstrucRedux';
-import { fetchDogDataStart } from '../../Redux/DogResults/DogResultsRedux';
+import { getDogData } from '../../const/selectors/selectorDogResults';
+import { changeLoading, updateOffset } from '../../Redux/Dog/DogResultsRedux';
 
-function CreateDogList({ dogLoading }) {
+function CreateDogList({ isDogLoading }) {
   const dispatch = useDispatch();
-  const [newCDData, setNewCDData] = useState([]);
   const [offsetAmount, setOffsetAmount] = useState(0);
   const dataContinues = true;
-  const parameters = UrlParameters();
   const limitperPage = 20;
-  const finalData = grabMergeData();
+  const completedDogData = getDogData();
 
   //* This function will execute when button is pressed
   //* it will activate the saga cycle
   const fetchDogApiData = async () => {
+    dispatch(changeLoading(true));
     dispatch(fetchNameDataStart());
-    dispatch(fetchDogDataStart());
+    dispatch(changeLoading(false));
     setOffsetAmount((offset) => offset + limitperPage);
-    dispatch(updateOffset(offsetAmount));
-    setNewCDData(finalData);
+    dispatch(updateOffset(offsetAmount + limitperPage));
   };
 
-  //* When ever the parameters are changed this will trigger the dispatch of updating parameters
-  useEffect(() => {
-    dispatch(updateParameters(parameters));
-    window.scrollTo(0, 0);
-  }, [parameters]);
-
-  if (dogLoading) {
+  if (isDogLoading) {
     return <Loading />;
   }
 
@@ -46,21 +36,20 @@ function CreateDogList({ dogLoading }) {
         next={fetchDogApiData}
         loader={<Loading />}
         hasMore={dataContinues}
-        dataLength={newCDData.length}
+        dataLength={completedDogData.length}
       >
-        {/* <button type="button" onClick={() => fetchApiData()}>Click Me</button> */}
-        <DogCardTemplateList combinedDogData={newCDData} />
+        <DogCardTemplateList combinedDogData={completedDogData} />
       </InfiniteScroll>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  dogLoading: state.reducer.dogResults.loading,
+  isDogLoading: state.reducer.dog.loading,
 });
 
 CreateDogList.propTypes = {
-  dogLoading: PropTypes.bool.isRequired,
+  isDogLoading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps)(CreateDogList);

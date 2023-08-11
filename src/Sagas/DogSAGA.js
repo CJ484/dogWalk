@@ -2,21 +2,26 @@ import {
   call, put, select,
 } from 'redux-saga/effects';
 import { useDispatch } from 'react-redux';
-import { fetchDogDataFailure, fetchDogDataSuccess } from '../Redux/DogResults/DogResultsRedux';
+import {
+  fetchDogDataFailure, addDogResults, updateOffset, changeLoading,
+} from '../Redux/Dog/DogResultsRedux';
 import apiDogCall from '../api/dogs/ApiDogCall';
-import { updateOffset } from '../Redux/UrlConstruct/UrlConstrucRedux';
+import UrlParameters from '../api/dogs/UrlParameters';
 
 function* workFetchDog() {
-  const grabParam = yield select((state) => state.reducer.urlConst.parameters);
-  const grabOffSet = yield select((state) => state.reducer.urlConst.offsetAmount);
+  const getFilterValue = yield select((state) => state.reducer.dog.filters);
+  const grabParam = yield UrlParameters({ filterValues: getFilterValue });
+  const grabOffSet = yield select((state) => state.reducer.dog.offsetAmount);
   try {
-    const oldResponse = yield select((state) => state.reducer.dogResults.results);
+    const oldResponse = yield select((state) => state.reducer.dog.results);
     const newResponse = yield call(apiDogCall, { offsetAmount: grabOffSet, parameters: grabParam });
     const finalResponse = [...oldResponse, ...newResponse];
-    yield put(fetchDogDataSuccess(finalResponse));
+    yield put(addDogResults(finalResponse));
     yield useDispatch(updateOffset(grabOffSet + 20));
+    yield put(changeLoading(false));
   } catch (error) {
     yield put(fetchDogDataFailure(error));
+    yield put(changeLoading(false));
   }
 }
 
