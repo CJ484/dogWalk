@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { setFilter, removeSelected } from '../../Redux/Dog/DogResultsRedux';
-import getFilterList from '../../const/selectors/DisplayFilters';
+import { getActiveFilterList } from '../../const/selectors/selectorDogResults';
 
 function DisplayFilters() {
   const dispatch = useDispatch();
-  const selectedFilters = getFilterList();
+  const selectedFilters = getActiveFilterList();
   const [filterNames, setFilterNames] = useState([]);
 
   const removeSelectedFilter = (input, name) => {
