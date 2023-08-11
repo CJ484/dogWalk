@@ -4,8 +4,7 @@ import './DisplayFilters.styles.scss';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { removeSelected } from '../../Redux/Filters/DisplayFilterRedux';
-import { setFilter } from '../../Redux/Filters/FilterRedux';
+import { setFilter, removeSelected } from '../../Redux/Dog/DogResultsRedux';
 import getFilterList from '../../const/selectors/DisplayFilters';
 
 function DisplayFilters() {

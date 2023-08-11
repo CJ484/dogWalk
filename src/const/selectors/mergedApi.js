@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
 
-const grabMergeData = () => useSelector((state) => state.reducer.mergedApi.results);
+const grabDogData = () => useSelector((state) => state.reducer.dog.results);
 
-export default grabMergeData;
+export default grabDogData;

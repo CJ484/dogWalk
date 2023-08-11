@@ -3,8 +3,7 @@ import './FilterResults.styles.scss';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { createList } from '../../Redux/Filters/DisplayFilterRedux';
-import { setFilter } from '../../Redux/Filters/FilterRedux';
+import { setFilter, createList } from '../../Redux/Dog/DogResultsRedux';
 
 function FilterComponent() {
   const { t } = useTranslation();
@@ -49,7 +48,7 @@ function FilterComponent() {
         />
         <Form.Check
           type="checkbox"
-          name="goodWithChildren"
+          name="good_with_children"
           label={t('filters.option-3')}
           onChange={(e) => handleCheckboxChange(e, t('filters.option-3'))}
         />
