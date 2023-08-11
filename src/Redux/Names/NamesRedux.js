@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 const NameResults = createSlice({
@@ -9,12 +10,10 @@ const NameResults = createSlice({
   reducers: {
     fetchNameDataStart: () => {},
     fetchNameSuccess: (state, action) => {
-      const nameResults = state;
-      nameResults.results = action.payload;
+      state.results = action.payload;
     },
     fetchNameError: (state, action) => {
-      const nameResults = state;
-      nameResults.error = action.payload;
+      state.error = action.payload;
     },
   },
 });
