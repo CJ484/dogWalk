@@ -13,15 +13,19 @@
     }
     .selectedFilters {
         margin: 0 15px;
+        padding: 10px 15px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        border-radius: 25px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         h6 {
             margin: 0;
         }
         .fa-circle-xmark {
-            margin: 0 10px;
+            margin-right: 10px;
+            cursor: pointer;
         }
     }
 }
