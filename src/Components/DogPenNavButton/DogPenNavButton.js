@@ -2,7 +2,7 @@ import React from 'react';
 import { isEqual } from 'lodash';
 import { useTranslation } from 'react-i18next';
 import dogPen from '../../assets/dogPen.png';
-import { getDogResultsDogPen } from '../../const/selectors/selectorDogResults';
+import { getDogResultsDogPen } from '../../const/selectors/dog';
 
 function DogPenNavButton() {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
-const DogResults = createSlice({
+const Dog = createSlice({
   name: 'dog',
   initialState: {
     filters: {
@@ -55,6 +55,6 @@ export const {
   addToDogPen, removeFromDogPen, addDogResults,
   fetchDogDataFailure, changeLoading, setFilter, createList, removeSelected,
   updateOffset,
-} = DogResults.actions;
+} = Dog.actions;
 
-export default DogResults.reducer;
+export default Dog.reducer;

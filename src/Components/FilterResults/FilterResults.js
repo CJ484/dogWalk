@@ -3,7 +3,7 @@ import './FilterResults.styles.scss';
 import { Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { setFilter, createList } from '../../Redux/Dog/DogResultsRedux';
+import { setFilter, createList } from '../../Redux/Dog/DogRedux';
 
 function FilterComponent() {
   const { t } = useTranslation();

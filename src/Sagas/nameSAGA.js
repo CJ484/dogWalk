@@ -11,6 +11,6 @@ function* workNameFetch() {
   }
 }
 
-export default function* nameSAGA() {
+export default function* nameSaga() {
   yield workNameFetch();
 }

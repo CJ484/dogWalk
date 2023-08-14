@@ -4,13 +4,13 @@ import {
 import { useDispatch } from 'react-redux';
 import {
   fetchDogDataFailure, addDogResults, updateOffset, changeLoading,
-} from '../Redux/Dog/DogResultsRedux';
-import apiDogCall from '../api/dogs/ApiDogCall';
-import UrlParameters from '../api/dogs/UrlParameters';
+} from '../Redux/Dog/DogRedux';
+import apiDogCall from '../api/dogs/apiDogCall';
+import formatDogApiParams from '../api/dogs/helpers';
 
 function* workFetchDog() {
   const getFilterValue = yield select((state) => state.reducer.dog.filters);
-  const grabParam = yield UrlParameters({ filterValues: getFilterValue });
+  const grabParam = yield formatDogApiParams({ filterValues: getFilterValue });
   const grabOffSet = yield select((state) => state.reducer.dog.offsetAmount);
   try {
     const oldResponse = yield select((state) => state.reducer.dog.results);
@@ -25,6 +25,6 @@ function* workFetchDog() {
   }
 }
 
-export default function* DogSAGA() {
+export default function* dogSaga() {
   yield workFetchDog();
 }

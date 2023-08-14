@@ -1,12 +1,12 @@
 import { put, select, takeLatest } from 'redux-saga/effects';
 import { sample } from 'lodash';
-import nameSAGA from './nameSAGA';
-import DogSAGA from './DogSAGA';
-import { addDogResults, changeLoading } from '../Redux/Dog/DogResultsRedux';
+import nameSaga from './nameSaga';
+import dogSaga from './dogSaga';
+import { addDogResults, changeLoading } from '../Redux/Dog/DogRedux';
 
-function* grabData() {
-  yield nameSAGA();
-  yield DogSAGA();
+function* fetchApiData() {
+  yield nameSaga();
+  yield dogSaga();
 }
 
 function* workMergeApiDatas() {
@@ -21,7 +21,7 @@ function* workMergeApiDatas() {
 }
 
 function* mergeTime() {
-  yield grabData();
+  yield fetchApiData();
   yield workMergeApiDatas();
 }
 

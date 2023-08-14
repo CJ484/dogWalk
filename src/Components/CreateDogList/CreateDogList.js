@@ -6,8 +6,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading/Loading';
 import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
 import { fetchNameDataStart } from '../../Redux/Names/NamesRedux';
-import { getDogData } from '../../const/selectors/selectorDogResults';
-import { changeLoading, updateOffset } from '../../Redux/Dog/DogResultsRedux';
+import { getDogData } from '../../const/selectors/dog';
+import { changeLoading, updateOffset } from '../../Redux/Dog/DogRedux';
 
 function CreateDogList({ isDogLoading }) {
   const dispatch = useDispatch();

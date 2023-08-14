@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './NewProfile.styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
-import { updateUser } from '../../Redux/User/userSlice';
+import { updateUser } from '../../Redux/User/UserSlice';
 import { getAllUserInfo } from '../../const/selectors/user';
 
 function NewProfile() {
