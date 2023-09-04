@@ -1,7 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
-import store from '../../Redux/store/store';
+import store from '../../Redux/MiddleWare/Index';
 import CardTemplate from './DogCardTemplateList';
 
 jest.mock('react-i18next', () => ({
