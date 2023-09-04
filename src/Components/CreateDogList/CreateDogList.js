@@ -5,13 +5,17 @@ import { connect, useDispatch } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading/Loading';
 import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
-import { fetchNameDataStart } from '../../Redux/Names/NamesRedux';
-import { getDogData } from '../../const/selectors/dog';
-import { changeLoading, updateOffset } from '../../Redux/Dog/DogRedux';
+import CardTemplate from '../DogCardTemplate/DogCardTemplate';
+import { setLoading } from '../../Redux/Loading/LoadingSlice';
+import { setDataDog } from '../../Redux/DogResults/DogResultsRedux';
+import apiDogCall from '../../api/dogs/ApiCall';
+import UrlParameters from '../../api/dogs/UrlParameters';
+import apiNameCall from '../../api/name/apiCall';
 
 function CreateDogList({ isDogLoading }) {
   const dispatch = useDispatch();
   const [offsetAmount, setOffsetAmount] = useState(0);
+  const [combinedDogData, setCombinedDogData] = useState([]);
   const dataContinues = true;
   const limitperPage = 20;
   const completedDogData = getDogData();
@@ -38,7 +42,7 @@ function CreateDogList({ isDogLoading }) {
         hasMore={dataContinues}
         dataLength={completedDogData.length}
       >
-        <DogCardTemplateList combinedDogData={completedDogData} />
+        <DogCardTemplateList combinedDogData={combinedDogData} />
       </InfiniteScroll>
     </div>
   );
