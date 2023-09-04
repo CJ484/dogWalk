@@ -4,13 +4,12 @@ import './DisplayFilters.styles.scss';
 import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { removeSelected } from '../../Redux/Filters/DisplayFilterRedux';
-import { setFilter } from '../../Redux/Filters/FilterRedux';
-import getFilterList from '../../const/selectors/DisplayFilters';
+import { setFilter, removeSelected } from '../../Redux/Dog/DogRedux';
+import { getActiveFilterList } from '../../const/selectors/dog';
 
 function DisplayFilters() {
   const dispatch = useDispatch();
-  const selectedFilters = getFilterList();
+  const selectedFilters = getActiveFilterList();
   const [filterNames, setFilterNames] = useState([]);
 
   const removeSelectedFilter = (input, name) => {

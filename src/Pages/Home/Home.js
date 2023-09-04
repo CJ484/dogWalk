@@ -8,7 +8,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import cageDog from '../../assets/dogInCage.jpg';
 import dogHug from '../../assets/huggingDog.jpg';
-import DOG_RESULTS from '../../const/paths';
+import routes from '../../const/paths';
 
 function Home() {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ function Home() {
       <div className="MainBanner">
         <h1>{t('home.banner')}</h1>
         <div className="twoButtons">
-          <Link exact="true" to={DOG_RESULTS}>
+          <Link exact="true" to={routes.DOG_RESULTS.path}>
             <button type="button">
               <h2>{t('home.bannerButton')}</h2>
             </button>
