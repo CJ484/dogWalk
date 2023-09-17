@@ -9,7 +9,7 @@ https://65078b27d7cc59000816ab7d--neighbormydog.netlify.app/
 
 ![App Screenshot](./assets/Images/screenshot_1.png)
 ![App Screenshot](./assets/Images/screenshot_2.png)
-![App Screenshot](./assets/Images/screenshot_2.png)
+![App Screenshot](./assets/Images/screenshot_3.png)
 
 
 ## Badges
