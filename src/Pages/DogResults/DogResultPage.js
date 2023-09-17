@@ -5,7 +5,7 @@ import {
   FilterResults,
   DisplayFilters,
   CreateDogList,
-} from '../../Components/index';
+} from '../../Components';
 
 function DogResultsPage() {
   return (
