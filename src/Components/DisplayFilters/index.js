@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { isEqual } from 'lodash';
 import './DisplayFilters.styles.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { setFilter, removeSelected } from '../../Redux/Dog/DogRedux';
-import { getActiveFilterList } from '../../const/selectors/dog';
+import { setFilter, removeSelected } from '../../Redux/dog/index';
+import { getActiveFilterList } from '../../Redux/selectors/dog';
 
 function DisplayFilters() {
   const dispatch = useDispatch();
-  const selectedFilters = getActiveFilterList();
+  const selectedFilters = useSelector(getActiveFilterList());
   const [filterNames, setFilterNames] = useState([]);
 
   const removeSelectedFilter = (input, name) => {

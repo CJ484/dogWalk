@@ -1,12 +1,13 @@
 import React from 'react';
 import { isEqual } from 'lodash';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import dogPen from '../../assets/dogPen.png';
-import { getDogResultsDogPen } from '../../const/selectors/dog';
+import { getDogResultsDogPen } from '../../Redux/selectors/dog';
 
 function DogPenNavButton() {
   const { t } = useTranslation();
-  const dogPenNumber = getDogResultsDogPen().length;
+  const dogPenNumber = useSelector(getDogResultsDogPen()).length;
   if (isEqual(dogPenNumber, 0)) {
     return (
       <div className="button">

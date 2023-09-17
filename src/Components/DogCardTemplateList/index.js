@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import './DogCardTemplateList.styles.scss';
-import DogPenAddButton from '../DogPenAddButton/DogPenAddButton';
+import DogPenAddButton from '../DogPenAddButton';
 
 function DogCardTemplateList({ combinedDogData }) {
   const { t } = useTranslation();
