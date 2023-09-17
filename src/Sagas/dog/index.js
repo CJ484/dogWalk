@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import {
   fetchDogDataFailure, addDogResults, updateOffset, changeLoading,
 } from '../../Redux/dog/index';
-import apiDogCall from '../../api/dogs/apiDogCall';
+import apiDogCall from '../../api/dogs';
 import formatDogApiParams from '../../api/dogs/helpers';
 
 function* workFetchDog() {

@@ -1,6 +1,6 @@
 // Import the function to be tested
 import axios from 'axios';
-import apiNameCall from './apiNameCall';
+import apiNameCall from './index';
 
 // Import Axios and Jest's mocking functions
 jest.mock('axios');
