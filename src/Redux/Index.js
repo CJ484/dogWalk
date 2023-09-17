@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import userReducer from './User/UserSlice';
-import dogReducer from './Dog/DogRedux';
-import nameReducers from './Names/NamesRedux';
+import userReducer from './user/index';
+import dogReducer from './dog/index';
+import nameReducers from './names/index';
 
 const rootReducer = combineReducers({
   user: userReducer,
