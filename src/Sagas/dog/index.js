@@ -4,9 +4,9 @@ import {
 import { useDispatch } from 'react-redux';
 import {
   fetchDogDataFailure, addDogResults, updateOffset, changeLoading,
-} from '../Redux/Dog/DogRedux';
-import apiDogCall from '../api/dogs/apiDogCall';
-import formatDogApiParams from '../api/dogs/helpers';
+} from '../../Redux/dog/index';
+import apiDogCall from '../../api/dogs/apiDogCall';
+import formatDogApiParams from '../../api/dogs/helpers';
 
 function* workFetchDog() {
   const getFilterValue = yield select((state) => state.reducer.dog.filters);
