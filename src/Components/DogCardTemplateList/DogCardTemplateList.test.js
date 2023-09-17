@@ -1,8 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
-import store from '../../Redux/MiddleWare/Index';
-import CardTemplate from './DogCardTemplateList';
+import store from '../../Redux/MiddleWare/index';
+import DogCardTemplateList from './index';
 
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn().mockReturnValue({ t: (key) => key }),
@@ -27,7 +27,7 @@ describe('CardTemplate', () => {
 
     const component = TestRenderer.create(
       <Provider store={store}>
-        <CardTemplate combinedDogData={combinedDogData} />
+        <DogCardTemplateList combinedDogData={combinedDogData} />
       </Provider>,
     );
     const tree = component.toJSON();
@@ -47,7 +47,7 @@ describe('CardTemplate', () => {
 
     const component = TestRenderer.create(
       <Provider store={store}>
-        <CardTemplate combinedDogData={combinedDogData} />
+        <DogCardTemplateList combinedDogData={combinedDogData} />
       </Provider>,
     );
     const tree = component.toJSON();
