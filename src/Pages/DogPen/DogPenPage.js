@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import './DogPenPage.styles.scss';
 import { useTranslation } from 'react-i18next';
-import DogCardTemplateList from '../../Components/DogCardTemplateList/DogCardTemplateList';
-import { getDogData, getDogResultsDogPen } from '../../const/selectors/dog';
+import { useSelector } from 'react-redux';
+import { DogCardTemplateList } from '../../Components/index';
+import { getDogData, getDogResultsDogPen } from '../../Redux/selectors/dog';
+import './DogPenPage.styles.scss';
 
 function DogPenPage() {
   const { t } = useTranslation();
-  const selectedDogs = getDogResultsDogPen();
-  const dogData = getDogData();
+  const selectedDogs = useSelector(getDogResultsDogPen());
+  const dogData = useSelector(getDogData());
   const data = useState(dogData);
   const [combinedDogData, setCombinedDogData] = useState([]);
 
   useEffect(() => {
     const combined = () => {
       const combinedList = selectedDogs.map((i) => data[0][i]);
-
       setCombinedDogData(combinedList);
     };
     combined();
