@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
 import { connect, useDispatch } from 'react-redux';
@@ -33,6 +33,10 @@ function CreateDogList({ isDogLoading }) {
   if (isDogLoading) {
     return <Loading />;
   }
+
+  useEffect(() => {
+    fetchDogApiData();
+  }, []);
 
   return (
     <div>

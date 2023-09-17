@@ -8,7 +8,7 @@ export const user = createSlice({
     phoneNumber: '',
   },
   reducers: {
-    updateUser: (action) => action.payload,
+    updateUser: (state, action) => action.payload,
   },
 });
 

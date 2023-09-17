@@ -10,7 +10,7 @@ import formatDogApiParams from '../api/dogs/helpers';
 
 function* workFetchDog() {
   const getFilterValue = yield select((state) => state.reducer.dog.filters);
-  const grabParam = yield formatDogApiParams({ filterValues: getFilterValue });
+  const grabParam = yield formatDogApiParams({ filters: getFilterValue });
   const grabOffSet = yield select((state) => state.reducer.dog.offsetAmount);
   try {
     const oldResponse = yield select((state) => state.reducer.dog.results);
