@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import SyncLoader from 'react-spinners/SyncLoader';
-import { changeLoading } from '../../Redux/Dog/DogRedux';
+import { changeLoading } from '../../Redux/dog/index';
 
 function Loading() {
   const dispatch = useDispatch();

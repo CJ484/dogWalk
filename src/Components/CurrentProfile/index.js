@@ -1,15 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import './CurrentProfile.styles.scss';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import profile from '../../assets/profile.png';
-import { getUserName } from '../../const/selectors/user';
-import routes from '../../const/paths';
+import { getUserName } from '../../Redux/selectors/user';
 
-function CurrentProfile() {
+function CurrentProfile({ path }) {
   const { t } = useTranslation();
-  const user = getUserName();
+  const user = useSelector(getUserName());
 
   // TODO I should impplement the react-textarea-autosize
   if (isEmpty(user)) {
@@ -27,7 +28,7 @@ function CurrentProfile() {
           </b>
         </h5>
       </div>
-      <Link exact="true" to={routes.CURRENT_PROFILE.path}>
+      <Link exact="true" to={path}>
         <div className="myProfile">
           <img src={profile} alt="profile" />
           <h5>{t('currentProfile.myProfile')}</h5>
@@ -36,5 +37,9 @@ function CurrentProfile() {
     </div>
   );
 }
+
+CurrentProfile.propTypes = {
+  path: PropTypes.string.isRequired,
+};
 
 export default CurrentProfile;

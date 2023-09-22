@@ -1,15 +1,16 @@
 import React from 'react';
 import './DogResultsPage.scss';
-import Banner from '../../Components/Banner/Banner';
-import FilterResults from '../../Components/FilterResults/FilterResults';
-import DisplayFilters from '../../Components/DisplayFilters/DisplayFilters';
-import CreateDogList from '../../Components/CreateDogList/CreateDogList';
+import {
+  Banner,
+  FilterResults,
+  DisplayFilters,
+  CreateDogList,
+} from '../../Components';
 
 function DogResultsPage() {
   return (
     <div className="dogWalkingPage">
       <Banner />
-
       <div className="midSection">
         <FilterResults />
         <div className="twoComponents">

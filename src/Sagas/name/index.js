@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import apiNameCall from '../api/name/apiNameCall';
-import { fetchNameError, fetchNameSuccess } from '../Redux/Names/NamesRedux';
+import apiNameCall from '../../api/name';
+import { fetchNameError, fetchNameSuccess } from '../../Redux/names/index';
 
 function* workNameFetch() {
   try {

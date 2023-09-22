@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './CreateDogList.styles.scss';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Loading from '../Loading/Loading';
-import DogCardTemplateList from '../DogCardTemplateList/DogCardTemplateList';
-import CardTemplate from '../DogCardTemplate/DogCardTemplate';
-import { setLoading } from '../../Redux/Loading/LoadingSlice';
-import { setDataDog } from '../../Redux/DogResults/DogResultsRedux';
-import apiDogCall from '../../api/dogs/ApiCall';
-import UrlParameters from '../../api/dogs/UrlParameters';
-import apiNameCall from '../../api/name/apiCall';
+import Loading from '../Loading';
+import DogCardTemplateList from '../DogCardTemplateList';
+import { fetchNameDataStart } from '../../Redux/names/index';
+import { getDogData } from '../../Redux/selectors/dog';
+import { changeLoading, updateOffset } from '../../Redux/dog/index';
 
 function CreateDogList({ isDogLoading }) {
   const dispatch = useDispatch();
   const [offsetAmount, setOffsetAmount] = useState(0);
-  const [combinedDogData, setCombinedDogData] = useState([]);
   const dataContinues = true;
   const limitperPage = 20;
-  const completedDogData = getDogData();
+  const completedDogData = useSelector(getDogData());
 
   //* This function will execute when button is pressed
   //* it will activate the saga cycle
@@ -46,7 +42,7 @@ function CreateDogList({ isDogLoading }) {
         hasMore={dataContinues}
         dataLength={completedDogData.length}
       >
-        <DogCardTemplateList combinedDogData={combinedDogData} />
+        <DogCardTemplateList combinedDogData={completedDogData} />
       </InfiniteScroll>
     </div>
   );
