@@ -1,9 +1,9 @@
 # 🐾  Dog Walking Concept Website  🐾 
 
-Part of my learning journey was to use an API of my choice. I created an idea of how to use this API and I created this website for the idea that local dog loving people can walk dogs from local shelters. The purpose of this project was to imporve my file structure and to learn to use Redux Saga.
+Part of my learning journey was to use an API of my choice. I created an idea of how to use this API and I created this website for the idea that local dog-loving people can walk dogs from local shelters. The purpose of this project was to improve my file structure and to learn to use Redux Saga.
 
 ## Demo
-https://65078b27d7cc59000816ab7d--neighbormydog.netlify.app/
+https://neighbormydog.netlify.app/
 
 ## Screenshots
 
