@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import Layout from './layout';
 import store from './Redux/MiddleWare/index';
 import './utils/i18n';
 
@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Layout />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
