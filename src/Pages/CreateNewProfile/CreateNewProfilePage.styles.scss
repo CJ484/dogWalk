@@ -1,8 +1,6 @@
-@import '../../utils/_variables.scss';
-
 .Page {
     display: flex;
-    background-color: $orange-background;
+    background-color: var(--orange-background);
     justify-content: center;
     align-items: center;
     margin: auto;

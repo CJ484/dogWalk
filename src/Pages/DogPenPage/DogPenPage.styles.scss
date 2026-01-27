@@ -1,5 +1,3 @@
-@import '../../utils/_variables';
-
 .DogPen {
     display: flex;
     justify-content: center;
@@ -7,9 +5,9 @@
     flex-direction: column;
     height: 91vh;
     border-radius: 1px solid black;
-    background-color: $orange-background;
+    background-color: var(--orange-background);
     h1 {
-        font-family: $headers;
+        font-family: var(--headers);
         color: white;
     }
     .card-body .btn {
@@ -35,7 +33,7 @@
 
 .emptyDogpen {
     h1, h3 {
-        font-family: $headers;
+        font-family: var(--headers);
     }
     background-color: #fece87ee;
 }
