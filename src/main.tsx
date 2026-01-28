@@ -6,6 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import Layout from './layout';
 import store from './Redux/MiddleWare/index';
 import './utils/i18n';
+import './styles/global.scss';
+import './styles/__variables.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
