@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans&display=swap');
 
 :root {
     --background: #FAFAFA;
@@ -13,7 +13,8 @@
     --font-color-light: oklch(0.9 0 0);
 
     --main-font: "Open Sans";
-
+    --headers: "Alfa Slab One";
+    
     --border-radius-1: 4px;
     --border-radius-2: 8px;
     --border-radius-3: 12px;
