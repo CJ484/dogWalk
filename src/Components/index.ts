@@ -1,16 +1,12 @@
-import Banner from './Banner';
-import CreateDogList from './CreateDogList';
-import CurrentProfile from './CurrentProfile';
-import DisplayFilters from './DisplayFilters';
-import DogCardTemplateList from './DogCardTemplateList';
-import DogPenAddButton from './DogPenAddButton';
-import DogPenNavButton from './DogPenNavButton';
-import FilterResults from './FilterResults';
-import LanguageList from './LanguageList';
-import Loading from './Loading';
-import NewProfile from './NewProfile';
-
-export {
-  Banner, CreateDogList, CurrentProfile, DisplayFilters, DogCardTemplateList,
-  DogPenAddButton, DogPenNavButton, FilterResults, LanguageList, Loading, NewProfile,
-};
+export { default as Banner } from './Banner';
+export { default as CreateDogList } from './CreateDogList';
+export { default as CurrentProfile } from './CurrentProfile';
+export { default as DisplayFilters } from './DisplayFilters';
+export { default as DogCardTemplateList } from './DogCardTemplateList';
+export { default as DogPenAddButton } from './DogPenAddButton';
+export { default as DogPenNavButton } from './DogPenNavButton';
+export { default as FilterResults } from './FilterResults';
+export { default as LanguageList } from './LanguageList';
+export { default as Loading } from './Loading';
+export { default as NewProfile } from './NewProfile';
+export { default as Header } from './Header/Header.tsx';
