@@ -3,3 +3,4 @@ export { default as CreateNewProfilePage } from './CreateNewProfilePage/CreateNe
 export { default as CurrentProfilePage } from './CurrentProfilePage/CurrentProfilePage';
 export { default as DogResultsPage } from './DogResultsPage/DogResultPage';
 export { default as DogPenPage } from './DogPenPage/DogPenPage';
+export { default as NotFoundPage } from './NotFoundPage/NotFoundPage';
