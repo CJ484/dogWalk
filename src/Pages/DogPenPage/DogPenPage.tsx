@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DogCardTemplateList } from '../../Components';
 import { getDogData, getDogResultsDogPen } from '../../Redux/selectors/dog';
-import './DogPenPage.styles.scss';
+import './DogPenPage.scss';
 import { RootState } from '../../Redux/MiddleWare/index';
 
 interface DogData {

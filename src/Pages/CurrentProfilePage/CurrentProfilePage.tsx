@@ -1,9 +1,8 @@
-import React from 'react';
-import './CurrentProfilePage.styles.scss';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { getAllUserInfo } from '../../Redux/selectors/user';
 import { RootState } from '../../Redux/MiddleWare/index';
+import './CurrentProfilePage.scss';
 
 function CurrentProfilePage() {
   const { t } = useTranslation();

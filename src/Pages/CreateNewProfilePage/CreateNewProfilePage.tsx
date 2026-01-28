@@ -1,6 +1,5 @@
-import React from 'react';
 import NewProfile from '../../Components/NewProfile';
-import './CreateNewProfilePage.styles.scss';
+import './CreateNewProfilePage.scss';
 
 function CreateNewProfile() {
   return (
