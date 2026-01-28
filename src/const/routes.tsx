@@ -1,9 +1,5 @@
-import { HomePage,
-   CreateNewProfilePage,
-   CurrentProfilePage,
-   DogResultsPage,
-   DogPenPage } from '../Pages/index';
-import { FaMagnifyingGlass, FaPersonWalking } from 'react-icons/fa6';
+import { CurrentProfilePage, CreateNewProfilePage, DogResultsPage, DogPenPage, HomePage } from '../Pages/index';
+import { FaMagnifyingGlass, FaPersonWalking, FaHouse, FaUser, FaDog } from 'react-icons/fa6';
 
 type RouteProps = {
   title: string;
@@ -18,35 +14,54 @@ const routes: RouteProps[] = [
   {
     title: 'Home',
     path: '/',
+    icon: <FaHouse />,
     element: <HomePage />,
     exact: true,
   },
   {
-    title: 'dogResults',
-    path: '/Pages/DogResults/DogResultPage',
+    title: 'Create New Profile',
+    path: '/create-new-profile',
+    icon: <FaUser />,
+    element: <CreateNewProfilePage />,
+    exact: true,
+  },
+  {
+    title: 'Dog Results',
+    path: '/dog-results',
     icon: <FaMagnifyingGlass />,
     element: <DogResultsPage />,
     exact: true,
   },
   {
-    title: 'createNewProfile',
-    path: '/Pages/CreateNewProfile/CreateNewProfilePage',
+    title: 'Current Profile',
+    path: '/current-profile',
+    element: <CurrentProfilePage />,
+    exact: true,
+  },
+  {
+    title: 'Dog Pen',
+    path: '/dog-pen',
+    icon: <FaDog />,
+    element: <DogPenPage />,
+    exact: true,
+  }
+]
+
+const navRoutes: RouteProps[] = [
+  {
+    title: 'Explore Dogs',
+    path: '/dog-results',
+    icon: <FaMagnifyingGlass />,
+    element: <DogResultsPage />,
+    exact: true,
+  },
+  {
+    title: 'Become A Walker',
+    path: '/create-new-profile',
     icon: <FaPersonWalking />,
     element: <CreateNewProfilePage />,
     exact: true,
   },
-  {
-    title: 'dogPen',
-    path: '/Pages/DogPenPage',
-    element: <DogPenPage />,
-    exact: true,
-  },
-  {
-    title: 'currentProfile',
-    path: '/Pages/CurrentProfile.CurrentProfilePage',
-    element: <CurrentProfilePage />,
-    exact: true,
-  },
 ]
 
-export default routes;
+export { routes, navRoutes };
