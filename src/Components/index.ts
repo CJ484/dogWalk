@@ -1,4 +1,3 @@
-export { default as Banner } from './Banner';
 export { default as CreateDogList } from './CreateDogList';
 export { default as CurrentProfile } from './CurrentProfile';
 export { default as DisplayFilters } from './DisplayFilters';

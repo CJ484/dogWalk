@@ -1,16 +1,18 @@
-import React from 'react';
-import './DogResultsPage.scss';
 import {
-  Banner,
   FilterResults,
   DisplayFilters,
   CreateDogList,
-} from '../../Components';
+} from '@/Components';
+import { useTranslation } from 'react-i18next';
+import './DogResultsPage.scss';
 
 function DogResultsPage() {
+  const { t } = useTranslation();
   return (
     <div className="dogWalkingPage">
-      <Banner />
+      <div className="dogWalkingPage__banner">
+      <h1>{t('banner.title')}</h1>
+    </div>
       <div className="midSection">
         <FilterResults />
         <div className="twoComponents">
