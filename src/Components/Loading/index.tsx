@@ -1,26 +1,9 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import SyncLoader from 'react-spinners/SyncLoader';
-import { changeLoading } from '../../Redux/dog/index';
+import {DotLoader} from 'react-spinners';
 
-function Loading() {
-  const dispatch = useDispatch();
-  const setLoadingFalse = () => {
-    dispatch(changeLoading(false));
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadingFalse();
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function Loading() {
   return (
-    <div className="loaderPage">
-      <SyncLoader size={100} color="#FF9D28" />
+    <div style={{ margin: '0 auto'}}>
+      <DotLoader color="#FF9D28" size={50} />
     </div>
   );
 }
-
-export default Loading;
