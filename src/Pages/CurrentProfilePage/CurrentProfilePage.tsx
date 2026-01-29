@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { getAllUserInfo } from '../../Redux/selectors/user';
-import { RootState } from '../../Redux/MiddleWare/index';
+import { getAllUserInfo } from '@/Redux/selectors/user';
+import { RootState } from '@/Redux/MiddleWare/index';
 import './CurrentProfilePage.scss';
 
 function CurrentProfilePage() {

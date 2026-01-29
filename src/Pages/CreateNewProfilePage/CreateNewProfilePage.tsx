@@ -1,4 +1,4 @@
-import NewProfile from '../../Components/NewProfile';
+import NewProfile from '@/Components/NewProfile';
 import './CreateNewProfilePage.scss';
 
 function CreateNewProfile() {

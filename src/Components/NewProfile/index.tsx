@@ -4,10 +4,10 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import './NewProfile.styles.scss';
 import { FaEnvelope, FaPhone, FaUser } from 'react-icons/fa';
-import { updateUser } from '../../Redux/user/index';
-import { getAllUserInfo } from '../../Redux/selectors/user';
+import { updateUser } from '@/Redux/user/index';
+import { getAllUserInfo } from '@/Redux/selectors/user';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../Redux/MiddleWare/index';
+import { RootState } from '@/Redux/MiddleWare/index';
 
 function NewProfile() {
   const dispatch = useDispatch();

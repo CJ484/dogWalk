@@ -2,8 +2,8 @@ import { put, select, takeLatest } from 'redux-saga/effects';
 import { sample } from 'lodash';
 import nameSaga from '../name';
 import dogSaga from '../dog';
-import { addDogResults, changeLoading } from '../../Redux/dog/index';
-import { RootState } from '../../Redux/MiddleWare/index';
+import { addDogResults, changeLoading } from '@/Redux/dog/index';
+import { RootState } from '@/Redux/MiddleWare/index';
 
 function* fetchApiData() {
   yield nameSaga();

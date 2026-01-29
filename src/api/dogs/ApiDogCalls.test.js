@@ -1,7 +1,7 @@
 // api.test.js
 import axios from 'axios';
 import apiDogCall from './index';
-import urls from '../../const/urls';
+import urls from '@/const/urls';
 
 // Mocking axios for testing
 jest.mock('axios');

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DogCardTemplateList } from '../../Components';
-import { getDogData, getDogResultsDogPen } from '../../Redux/selectors/dog';
+import { DogCardTemplateList } from '@/Components';
+import { getDogData, getDogResultsDogPen } from '@/Redux/selectors/dog';
 import './DogPenPage.scss';
-import { RootState } from '../../Redux/MiddleWare/index';
+import { RootState } from '@/Redux/MiddleWare/index';
 
 interface DogData {
   name: string;

@@ -3,10 +3,10 @@ import {
 } from 'redux-saga/effects';
 import {
   fetchDogDataFailure, addDogResults, updateOffset, changeLoading,
-} from '../../Redux/dog/index';
-import apiDogCall from '../../api/dogs';
-import formatDogApiParams from '../../api/dogs/helpers';
-import { RootState } from '../../Redux/MiddleWare/index';
+} from '@/Redux/dog/index';
+import apiDogCall from '@/api/dogs';
+import formatDogApiParams from '@/api/dogs/helpers';
+import { RootState } from '@/Redux/MiddleWare/index';
 
 function* workFetchDog() {
   const getFilterValue: ReturnType<typeof select> = yield select((state: RootState) => state.reducer.dog.filters);
