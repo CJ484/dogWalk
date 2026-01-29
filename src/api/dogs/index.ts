@@ -1,5 +1,5 @@
 import axios from 'axios';
-import urls from '../../const/urls';
+import urls from '@/const/urls';
 
 interface ApiDogCallParams {
   offsetAmount: number;
