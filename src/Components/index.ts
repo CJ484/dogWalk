@@ -5,7 +5,7 @@ export { default as DogCardTemplateList } from './DogCardTemplateList';
 export { default as DogPenAddButton } from './DogPenAddButton';
 export { default as DogPenNavButton } from './DogPenNavButton';
 export { default as FilterResults } from './FilterResults';
-export { default as LanguageList } from './LanguageList';
+export { default as LanguageList } from './LanguageList/LanguageList.tsx';
 export { default as Loading } from './Loading';
 export { default as NewProfile } from './NewProfile';
 export { default as Header } from './Header/Header.tsx';
