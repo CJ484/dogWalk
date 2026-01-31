@@ -26,8 +26,8 @@ const routes: RouteProps[] = [
     exact: true,
   },
   {
-    title: 'Dog Results',
-    path: '/dog-results',
+    title: 'Explore Dogs',
+    path: '/explore-dogs',
     icon: <FaMagnifyingGlass />,
     element: <DogResultsPage />,
     exact: true,
@@ -50,7 +50,7 @@ const routes: RouteProps[] = [
 const navRoutes: RouteProps[] = [
   {
     title: 'Explore Dogs',
-    path: '/dog-results',
+    path: '/explore-dogs',
     icon: <FaMagnifyingGlass />,
     element: <DogResultsPage />,
     exact: true,
