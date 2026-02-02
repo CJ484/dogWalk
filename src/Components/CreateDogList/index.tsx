@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import './CreateDogList.styles.scss';
+import { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Loading';
-import DogCardTemplateList from '../DogCardTemplateList';
-import { fetchNameDataStart } from '../../Redux/names/index';
-import { getDogData } from '../../Redux/selectors/dog';
-import { changeLoading, updateOffset } from '../../Redux/dog/index';
-import { RootState } from '../../Redux/MiddleWare/index';
+import DogCardTemplate from '../DogCardTemplate/DogCardTemplate';
+import { fetchNameDataStart } from '@/Redux/names/index';
+import { getDogData } from '@/Redux/selectors/dog';
+import { changeLoading, updateOffset } from '@/Redux/dog/index';
+import { RootState } from '@/Redux/MiddleWare/index';
+import './CreateDogList.styles.scss';
 
 interface CreateDogListProps {
   isDogLoading: boolean;
@@ -45,8 +45,9 @@ function CreateDogList({ isDogLoading }: CreateDogListProps) {
         loader={<Loading />}
         hasMore={dataContinues}
         dataLength={completedDogData.length}
+        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
       >
-        <DogCardTemplateList combinedDogData={completedDogData} />
+        <DogCardTemplate data={completedDogData} />
       </InfiniteScroll>
     </div>
   );
