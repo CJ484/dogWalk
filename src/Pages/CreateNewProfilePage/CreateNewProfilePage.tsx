@@ -1,11 +1,10 @@
 import NewProfile from '@/Components/NewProfile';
-import './CreateNewProfilePage.scss';
 
 function CreateNewProfile() {
   return (
-    <div className="Page">
+    <main className="page">
       <NewProfile />
-    </div>
+    </main>
   );
 }
 
