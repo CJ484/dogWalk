@@ -33,9 +33,9 @@
 
   "profile": {
     "title": "Create New Profile",
-    "user": "UserName",
-    "email": "Email",
-    "phone": "Phone Number",
+    "user": "Enter your username",
+    "email": "Enter your email",
+    "phone": "Enter your phone number",
     "button": "Update Profile",
     "toastSuccess": "Profile Updated Successfully!"
   },
@@ -51,6 +51,7 @@
     "title": "Current Profile",
     "welcomingHeader": "Welcome Back",
     "myProfile": "My Profile",
+    "noProfile": "No profile yet. Create one to get started!",
     "user": "UserName",
     "email": "Email",
     "phone": "Phone Number"
