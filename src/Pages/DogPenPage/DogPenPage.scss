@@ -1,43 +1,64 @@
-.DogPen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 91vh;
-    border-radius: 1px solid black;
-    background-color: var(--orange-background);
-    h1 {
-        font-family: var(--headers);
-        color: white;
-    }
-    .card-body .btn {
-        display: none;
-    }
-}
-
 .emptyDogpen, .activeDogpen {
     display: flex;
-    width: 75%;
-    height: 70%;
-    margin-top: 35px;
-    border-radius: 8px;
+    width: min(90%, 1200px);
+    min-height: 70%;
+    margin-top: var(--spacing-8);
+    padding: var(--spacing-8);
+    border-radius: var(--border-radius-3);
     justify-content: center;
     flex-direction: column;
     align-items: center;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    h1 {
-        margin-top: 40px;
-        font-size: 3rem;
+    background-color: var(--white-background);
+    animation: fadeIn 0.4s ease-in;
+    @media screen and (max-width: 768px) {
+        width: 95%;
+        padding: var(--spacing-6);
+        margin-top: var(--spacing-6);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &__title {
+        margin-top: var(--spacing-10);
+        margin-bottom: var(--spacing-6);
+        font-size: clamp(2rem, 5vw, 3rem);
+        text-align: center;
+        color: var(--main-color);
+        @media screen and (max-width: 768px) {
+            font-size: var(--font-size-6);
+        }
+    }
+
+    &__subtitle {
+        font-family: var(--headers);
+        text-align: center;
+        color: var(--main-color);
+        margin: var(--spacing-4) 0;
+        @media screen and (max-width: 768px) {
+            font-size: var(--font-size-5);
+        }
     }
 }
 
 .emptyDogpen {
-    h1, h3 {
+    &__title, &__subtitle {
         font-family: var(--headers);
     }
-    background-color: #fece87ee;
 }
 
 .activeDogpen {
-    background-color: #fece87ee;
+    .cardGrid {
+        width: 100%;
+        margin-top: var(--spacing-6);
+    }
 }
