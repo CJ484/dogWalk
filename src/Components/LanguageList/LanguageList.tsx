@@ -16,7 +16,7 @@ export default function Languagelist() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="languageList__button" variant="default" size="icon">
+        <Button className="languageList__button" variant="default" size="default">
           <FaEarthAmericas />
           <span>Language</span>
           <FaChevronDown />
