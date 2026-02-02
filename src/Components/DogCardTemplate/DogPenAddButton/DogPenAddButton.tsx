@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { isEqual } from 'lodash';
 import { useTranslation } from 'react-i18next';
 import './DogPenAddButton.styles.scss';
 import { useDispatch } from 'react-redux';
 import { FaTrashCan } from 'react-icons/fa6';
-import { addToDogPen, removeFromDogPen } from '../../Redux/dog/index';
+import { addToDogPen, removeFromDogPen } from '@/Redux/dog/index';
 
 interface DogPenAddButtonProps {
   index: number;
@@ -27,14 +27,14 @@ function DogPenAddButton({ index }: DogPenAddButtonProps) {
 
   if (isEqual(dogPenActive, true)) {
     return (
-      <button type="button" className="btn btn-danger test" onClick={() => removeDogData(index)}>
+      <button type="button" className="dogPenButton dogPenButton--remove" onClick={() => removeDogData(index)}>
         <FaTrashCan />
         <h6>Remove from DogPen</h6>
       </button>
     );
   }
   return (
-    <button type="button" className="btn btn-warning" onClick={() => addDogData(index)}>
+    <button type="button" className="dogPenButton dogPenButton--add" onClick={() => addDogData(index)}>
       {t('card.button')}
     </button>
   );
