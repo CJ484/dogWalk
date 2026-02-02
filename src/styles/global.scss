@@ -1,3 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors from __variables.css */
+    --background: 0 0% 98%; /* #FAFAFA */
+    --foreground: 0 0% 20%; /* Dark text color */
+    
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    
+    /* Primary colors - Orange theme (#FF9D28) */
+    --primary: 37 100% 58%; /* --main-color: #FF9D28 */
+    --primary-foreground: 0 0% 98%; /* Light text on orange */
+    
+    /* Secondary colors - Light orange (#ffbc69) */
+    --secondary: 37 100% 71%; /* --accent-color: #ffbc69 */
+    --secondary-foreground: 0 0% 20%; /* Dark text on light orange */
+    
+    /* Muted colors */
+    --muted: 37 100% 95%; /* Very light orange tint */
+    --muted-foreground: 0 0% 40%; /* Medium gray */
+    
+    /* Accent colors - Dark orange (#DD7A03) */
+    --accent: 33 98% 44%; /* --third-color: #DD7A03 */
+    --accent-foreground: 0 0% 98%; /* Light text on dark orange */
+    
+    /* Destructive colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border and input */
+    --border: 37 30% 85%; /* Light orange-tinted border */
+    --input: 37 30% 90%; /* Light orange-tinted input background */
+    --ring: 37 100% 58%; /* Focus ring matches primary */
+    
+    /* Border radius */
+    --radius: 0.5rem;
+    
+    /* Chart colors - orange palette */
+    --chart-1: 37 100% 58%; /* Main orange */
+    --chart-2: 33 98% 44%; /* Dark orange */
+    --chart-3: 37 100% 71%; /* Light orange */
+    --chart-4: 25 100% 50%; /* Complementary warm */
+    --chart-5: 45 100% 60%; /* Complementary yellow-orange */
+  }
+
+  .dark {
+    /* Dark mode with orange accents */
+    --background: 0 0% 10%; /* Very dark background */
+    --foreground: 0 0% 95%; /* Light text */
+    
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+    
+    /* Primary - brighter orange for dark mode */
+    --primary: 37 100% 65%; /* Brighter #FF9D28 */
+    --primary-foreground: 0 0% 10%;
+    
+    /* Secondary - softer orange for dark mode */
+    --secondary: 37 50% 30%; /* Muted orange */
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+    
+    /* Accent - vibrant dark orange */
+    --accent: 33 98% 50%; /* Brighter dark orange for dark mode */
+    --accent-foreground: 0 0% 95%;
+    
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 95%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 37 100% 65%;
+    
+    /* Chart colors - adjusted for dark mode */
+    --chart-1: 37 100% 65%;
+    --chart-2: 33 98% 50%;
+    --chart-3: 37 100% 75%;
+    --chart-4: 25 100% 55%;
+    --chart-5: 45 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 /*
  * A Modern CSS Reset (2025 Edition)
  * Inspired by Josh Comeau, Andy Bell, and community best practices.
@@ -15,6 +120,7 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   background-color: var(--background);
+  font-family: var(--main-font);
 }
 
 /* 3. Remove default margins (except dialog for centering) */
@@ -34,6 +140,28 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   min-height: 100svh; /* Small viewport height for full coverage */
+}
+
+.layout {
+  width: 100%;
+  max-width: 100vw;
+  padding-bottom: 50px;
+  position: relative;
+  background-color: var(--orange-background);
+  min-height: 100dvh;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: var(--spacing-4) var(--spacing-6);
+}
+
+/* Apply overflow constraint to body instead to allow header sticky positioning */
+body {
+  overflow-x: hidden;
 }
 
 /* 6. Shorter line heights for headings and forms */
@@ -76,7 +204,7 @@ ul[role="list"], ol[role="list"] {
 /* 12. Links: Skip ink on underlines */
 a:not([class]) {
   text-decoration-skip-ink: auto;
-  color: currentColor;
+  color: inherit;
 }
 
 /* 13. Anchored elements: Extra scroll margin */
