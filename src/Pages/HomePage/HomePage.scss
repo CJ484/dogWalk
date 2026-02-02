@@ -1,50 +1,98 @@
-.MainBanner {
+.homePage {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 100%;
-    height: 80vh;
-    background: linear-gradient(to bottom, rgba(142, 142, 142, 0.3), rgba(142, 142, 142, 0.3)),
-        url("/images/happyFamily.jpg") no-repeat center center;
-    background-size: cover;
-    .twoButtons {
+    gap: var(--spacing-2);
+    &__banner {
+        width: 100%;
+        height: 100vh;
         display: flex;
+        position: relative;
         flex-direction: column;
-        justify-content: flex;
-    }
-    h1 {
-        font-family: var(--headers);
-        font-size: 4rem;
-        color: aliceblue;
-    }
-    button {
-        cursor: pointer;
-        border-radius: 30px;
-        border: none;
-        color: var(--background);
-        h2 {
-            padding: 0 28px;
-            color: var(--third-color);
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+            opacity: 0.8;
+        }
+    
+        &__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            color: white;
+            text-transform: capitalize;
+            position: relative;
+            z-index: 2;
+            text-shadow: -2px -2px 1px var(--third-color), 4px 4px 1px rgba(109, 109, 109, 0.7);
+        }
+    
+        &__button {
+            padding: var(--spacing-4) var(--spacing-6);
+            background-color: var(--third-color);
+            border-radius: var(--border-radius-5);
+            border: none;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            &:hover {
+                background-color: var(--main-color);
+            }
+            &__text {
+                color: aliceblue;
+                font-size: var(--font-size-5);
+                font-weight: 800;
+            }
+            @media (max-width: 1024px) {
+                padding: var(--spacing-2) var(--spacing-4);
+                &__text {
+                    font-size: var(--font-size-4);
+                }
+            }
         }
     }
-    .fa-chevron-down {
-        transform: scale(3);
-        margin-top: 15px;
-        color: var(--third-color);
-    }
-}
 
-.FirstSection,
-.SecondSection {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 4%;
-    img {
-        width: 400px;
-    }
-    p {
-        width: 500px;
+    &__section {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 4%;
+        width: 75vw;
+
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-4);
+        }
+    
+        &__image {
+            aspect-ratio: 1/1;
+            max-width: 400px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+        }
+    
+        &__paragraph {
+            max-width: 500px;
+            text-align: left;
+            font-size: var(--font-size-5);
+            font-weight: 600;
+            color: var(--font-color);
+            line-height: 1.75;
+            @media (max-width: 1024px) {
+                font-size: var(--font-size-4);
+            }
+        }
     }
 }
