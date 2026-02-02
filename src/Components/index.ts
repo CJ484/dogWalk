@@ -1,8 +1,8 @@
 export { default as CreateDogList } from './CreateDogList';
 export { default as CurrentProfile } from './CurrentProfile';
 export { default as DisplayFilters } from './DisplayFilters';
-export { default as DogCardTemplateList } from './DogCardTemplateList';
-export { default as DogPenAddButton } from './DogPenAddButton';
+export { default as DogCardTemplateList } from './DogCardTemplate/DogCardTemplate.tsx';
+export { default as DogPenAddButton } from './DogCardTemplate/DogPenAddButton/index.tsx';
 export { default as DogPenNavButton } from './DogPenNavButton';
 export { default as FilterResults } from './FilterResults';
 export { default as LanguageList } from './LanguageList/LanguageList.tsx';
