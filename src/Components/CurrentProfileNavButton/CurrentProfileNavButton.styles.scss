@@ -1,0 +1,132 @@
+.CurrentProfileNavButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-2);
+
+    .speechBubble {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        max-width: 400px;
+        min-width: 250px;
+        height: auto;
+        min-height: 40px;
+        padding: var(--spacing-4) var(--spacing-5);
+        margin: 0 0 50px 0;
+        background: var(--background);
+        border-radius: var(--border-radius-2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h5 {
+            margin: 0;
+            font-size: var(--font-size-5);
+            line-height: 1.4;
+            color: var(--font-color);
+            text-align: center;
+            word-wrap: break-word;
+
+            b {
+                color: var(--main-color);
+            }
+        }
+    }
+
+    .speechBubble::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid var(--background);
+        border-top: 10px solid var(--background);
+        border-bottom: 10px solid transparent;
+        bottom: -15px;
+        right: 20px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .myProfile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-3);
+        margin: 5px;
+        border: 3px solid var(--main-color);
+        border-radius: var(--border-radius-2);
+        background: var(--white-background);
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: var(--spacing-2);
+            border: 2px solid var(--main-color);
+            transition: border-color 0.3s ease;
+        }
+
+        h5 {
+            margin: 0;
+            font-size: var(--font-size-4);
+            color: var(--font-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        &:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 157, 40, 0.3);
+
+            img {
+                border-color: var(--accent-color);
+            }
+
+            h5 {
+                color: var(--main-color);
+            }
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: var(--spacing-4);
+
+        .speechBubble {
+            margin: 0;
+            min-width: 200px;
+
+            &::before {
+                bottom: auto;
+                top: 100%;
+                right: 50%;
+                transform: translateX(50%);
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid var(--background);
+                border-bottom: 10px solid transparent;
+            }
+        }
+    }
+}

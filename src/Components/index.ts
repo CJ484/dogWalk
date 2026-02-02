@@ -1,5 +1,5 @@
 export { default as CreateDogList } from './CreateDogList';
-export { default as CurrentProfile } from './CurrentProfile';
+export { default as CurrentProfile } from './CurrentProfileNavButton/CurrentProfileNavButton.tsx';
 export { default as DogCardTemplateList } from './DogCardTemplate/DogCardTemplate.tsx';
 export { default as DogPenAddButton } from './DogCardTemplate/DogPenAddButton/DogPenAddButton.tsx';
 export { default as DogPenNavButton } from './DogPenNavButton/DogPenNavButton.tsx';
